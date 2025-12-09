@@ -1,8 +1,5 @@
-import fs from 'fs';
-import path from 'path';
-
-const DATA_DIR = path.join(process.cwd(), 'data');
-const FILE_PATH = path.join(DATA_DIR, 'templates.json');
+import { db } from './firebase';
+import { collection, getDocs, getDoc, doc, setDoc } from 'firebase/firestore';
 
 export interface Template {
   id: string;
@@ -14,37 +11,27 @@ export interface Template {
   createdAt: string;
 }
 
-export const getTemplates = (): Template[] => {
-  if (!fs.existsSync(FILE_PATH)) {
-    return [];
-  }
-  const fileContent = fs.readFileSync(FILE_PATH, 'utf-8');
+export const getTemplates = async (): Promise<Template[]> => {
   try {
-    return JSON.parse(fileContent);
+    const querySnapshot = await getDocs(collection(db, 'templates'));
+    return querySnapshot.docs.map(doc => doc.data() as Template);
   } catch (error) {
-    console.error('Error parsing templates.json:', error);
+    console.error('Error fetching templates:', error);
     return [];
   }
 };
 
-export const getTemplateById = (id: string): Template | undefined => {
-  const templates = getTemplates();
-  return templates.find((t) => t.id === id);
-};
-
-export const addTemplate = (template: Omit<Template, 'id' | 'createdAt'>): Template => {
-  const templates = getTemplates();
-  const newTemplate: Template = {
-    ...template,
-    id: Date.now().toString(), // Simple ID generation
-    createdAt: new Date().toISOString(),
-  };
-  templates.push(newTemplate);
-
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
+export const getTemplateById = async (id: string): Promise<Template | undefined> => {
+  try {
+    const docRef = doc(db, 'templates', id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return docSnap.data() as Template;
+    }
+    return undefined;
+  } catch (error) {
+    console.error('Error fetching template:', error);
+    return undefined;
   }
-
-  fs.writeFileSync(FILE_PATH, JSON.stringify(templates, null, 2));
-  return newTemplate;
 };
+

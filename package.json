@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "firebase": "^12.6.0",
+    "firebase-admin": "^13.6.0",
+    "firebase-tools": "^14.27.0",
     "next": "16.0.8",
     "react": "19.2.1",
     "react-dom": "19.2.1"

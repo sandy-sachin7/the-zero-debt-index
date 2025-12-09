@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getTemplateById, Template } from '@/utils/storage';
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Template | { error: string }>
 ) {
   const { id } = req.query;
 
   if (req.method === 'GET') {
-    const template = getTemplateById(id as string);
+    const template = await getTemplateById(id as string);
 
     if (!template) {
       return res.status(404).json({ error: 'Template not found' });
