@@ -1,40 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Vibe Coding Starter Kit
+
+A template library for AI-first application prompts. This project allows you to browse, copy, and share "Vibe Coding" prompts to quickly spin up full-stack applications using AI tools like Google AI Studio, Gemini, or Copilot.
+
+## Features
+
+-   **Browse Templates**: View a curated list of high-quality prompts.
+-   **Copy & Paste**: One-click copy for prompts to use in your AI assistant.
+-   **Add Templates**: Easily add your own prompts to the library.
+-   **Simple Storage**: Uses a local JSON file (`data/templates.json`) for persistence.
+
+## Tech Stack
+
+-   **Frontend**: Next.js (Pages Router), React, Tailwind CSS
+-   **Backend**: Next.js API Routes
+-   **Language**: TypeScript
 
 ## Getting Started
 
-First, run the development server:
+1.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3.  **Open the app**:
+    Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+-   `/pages`: Frontend pages and API routes.
+    -   `/api/templates`: API endpoints for CRUD operations.
+-   `/components`: Reusable React components (Layout, etc.).
+-   `/data`: Contains `templates.json` (the database).
+-   `/utils`: Utility functions (storage logic).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## How to Add a New Template
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  Click "Add Template" in the navigation bar.
+2.  Fill in the details:
+    -   **Title**: Name of the app/script.
+    -   **Description**: Short summary.
+    -   **Tags**: Keywords for categorization.
+    -   **Prompt**: The actual prompt text to be pasted into an AI tool.
+3.  Click "Add Template".
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project uses a local filesystem (`data/templates.json`) for storage. This works great for local development or running on a VPS/container where the filesystem is persistent.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+**Note for Vercel/Netlify**: Since these platforms have ephemeral filesystems, the "Add Template" feature will not persist data permanently across redeploys. For production deployment on serverless platforms, you would need to swap the `utils/storage.ts` logic to use a real database (e.g., MongoDB, PostgreSQL, or Firebase).
