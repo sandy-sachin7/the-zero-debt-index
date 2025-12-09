@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "title": "Personal Link Hub (God-Tier)",
+        "title": "Personal Link Hub ",
         "description": "A single-file, responsive portfolio to showcase your social links. Optimized for semantic HTML and zero-build deployment.",
         "tags": [
             "Beginner",
@@ -9,13 +9,13 @@
             "Static",
             "Single-File"
         ],
-        "prompt": "**System Role**: You are a Senior Frontend Architect obsessed with semantic HTML, accessibility (a11y), and performance.\n**Objective**: Create a production-grade \"Link Hub\" in a single `index.html` file.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Thinking**: Before writing code, output a `<thinking>` block analyzing the CSS flexbox strategy for mobile responsiveness.\n2.  **Constraint**: Do NOT use external CSS/JS links. Everything must be inlined.\n\n**Implementation Plan**:\n1.  **Setup**: `run_command` to create directory `link-hub`.\n2.  **Code Generation**: Write `index.html` containing:\n    * **Structure**: Semantic tags (`<header>`, `<main>`, `<footer>`) with proper ARIA labels.\n    * **Style**: \"Cyberpunk Lite\" theme (`#0f0f0f` bg, `#b026ff` accents). Use CSS Variables (`:root`) for easy theming.\n    * **Logic**: A robust \"Share\" button using `navigator.clipboard.writeText()` with a visual feedback tooltip (e.g., \"Copied!\").\n3.  **Review**: Verify that contrast ratios meet WCAG AA standards.\n\n**Tools**: Use `write_to_file` only after the thinking block.",
+        "prompt": "**System Role**: You are a Senior Frontend Architect obsessed with semantic HTML, accessibility (a11y), and performance.\n**Objective**: Create a production-grade \"Link Hub\" in a single `index.html` file.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Thinking**: Before writing code, output a `<thinking>` block analyzing the CSS flexbox strategy for mobile responsiveness.\n2.  **Constraint**: Do NOT use external CSS/JS links. Everything must be inlined.\n\n**Implementation Plan**:\n1.  **Setup**: `run_command` to create directory `link-hub`.\n2.  **Code Generation**: Write `index.html` containing:\n    * **Structure**: Semantic tags (`<header>`, `<main>`, `<footer>`) with proper ARIA labels.\n    * **Style**: \"Cyberpunk Lite\" theme (`#0f0f0f` bg, `#b026ff` accents). Use CSS Variables (`:root`) for easy theming.\n    * **Logic**: A robust \"Share\" button using `navigator.clipboard.writeText()` with a visual feedback tooltip (e.g., \"Copied!\").\n3.  **Review**: Verify that contrast ratios meet WCAG AA standards.\n\n**Verification**:\n* **Visual Check**: Describe the mobile vs. desktop layout (e.g., \"On mobile, buttons stack vertically with 16px gap\") before coding.",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "2",
-        "title": "Local Markdown Editor (God-Tier)",
+        "title": "Local Markdown Editor ",
         "description": "A React-based markdown editor. Focuses on clean scaffolding and state persistence patterns.",
         "tags": [
             "Beginner",
@@ -23,13 +23,13 @@
             "Vite",
             "Tailwind"
         ],
-        "prompt": "**System Role**: You are a React Best-Practices Specialist.\n**Objective**: Scaffold and build a Local Markdown Editor with zero tech debt.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Tree First**: Output the intended file structure (`tree`) before writing any component code.\n2.  **Clean Code**: Avoid prop-drilling. Keep components small.\n\n**Workflow**:\n\n**Phase 1: Scaffolding**\n* Execute `npm create vite@latest markdown-editor -- --template react`.\n* Install: `react-markdown`, `tailwindcss`, `postcss`, `autoprefixer`.\n* Initialize Tailwind and configure `content` paths correctly in `tailwind.config.js`.\n\n**Phase 2: Implementation**\n* **Layout**: Create a split-pane layout (Editor Left, Preview Right). Use CSS Grid for responsiveness.\n* **Persistence**: Implement a custom hook `useLocalStorage` to handle the saving logic cleanly, rather than cluttering `App.jsx`.\n* **Preview**: Sanitize input in the `<ReactMarkdown>` component to prevent XSS.\n\n**Phase 3: Verification**\n* Run `npm run build`. If it fails, auto-correct the error and retry once.",
+        "prompt": "**System Role**: You are a React Best-Practices Specialist.\n**Objective**: Scaffold and build a Local Markdown Editor with zero tech debt.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Tree First**: Output the intended file structure (`tree`) before writing any component code.\n2.  **Clean Code**: Avoid prop-drilling. Keep components small.\n\n**Workflow**:\n\n**Phase 1: Scaffolding**\n* Execute `npm create vite@latest markdown-editor -- --template react`.\n* Install: `react-markdown`, `tailwindcss`, `postcss`, `autoprefixer`.\n* Initialize Tailwind and configure `content` paths correctly in `tailwind.config.js`.\n\n**Phase 2: Implementation**\n* **Layout**: Create a split-pane layout (Editor Left, Preview Right). Use CSS Grid for responsiveness.\n* **Persistence**: Implement a custom hook `useLocalStorage` to handle the saving logic cleanly, rather than cluttering `App.jsx`.\n* **Preview**: Sanitize input in the `<ReactMarkdown>` component to prevent XSS.\n\n**Verification**:\n* Run `npm run build`.\n* **Visual Check**: Generate a screenshot description of the split-pane layout, specifying how the textarea and preview pane interact on smaller screens.",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "3",
-        "title": "Random Quote Generator (God-Tier)",
+        "title": "Random Quote Generator ",
         "description": "Robust vanilla JS app. Focuses on error boundaries and graceful degradation.",
         "tags": [
             "Beginner",
@@ -37,13 +37,13 @@
             "JavaScript",
             "DOM"
         ],
-        "prompt": "**System Role**: You are a JavaScript Core Engineer.\n**Objective**: Build a bulletproof \"Random Quote Generator\" that never crashes.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **State Machine**: In your `<thinking>` block, define the states: `IDLE`, `LOADING`, `SUCCESS`, `ERROR`.\n2.  **Error Handling**: The app must function even if the user is offline (use fallback data).\n\n**Implementation Details**:\n1.  **Setup**: Create `quote-generator` folder with `index.html`, `style.css`, `app.js`.\n2.  **Logic (`app.js`)**:\n    * Fetch from `https://api.quotable.io/random`.\n    * Wrap async calls in `try/catch`.\n    * **Fallback Strategy**: Define a `const FALLBACK_QUOTES = [...]` array. If the API fails or times out (>3000ms), serve a random local quote.\n3.  **UI Feedback**: The button must become `disabled` and show a spinner during the `LOADING` state.\n\n**Verification**:\n* Simulate a network failure in your reasoning to ensure the fallback logic is sound.",
+        "prompt": "**System Role**: You are a JavaScript Core Engineer.\n**Objective**: Build a bulletproof \"Random Quote Generator\" that never crashes.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **State Machine**: In your `<thinking>` block, define the states: `IDLE`, `LOADING`, `SUCCESS`, `ERROR`.\n2.  **Error Handling**: The app must function even if the user is offline (use fallback data).\n\n**Implementation Details**:\n1.  **Setup**: Create `quote-generator` folder with `index.html`, `style.css`, `app.js`.\n2.  **Logic (`app.js`)**:\n    * Fetch from `https://api.quotable.io/random`.\n    * Wrap async calls in `try/catch`.\n    * **Fallback Strategy**: Define a `const FALLBACK_QUOTES = [...]` array. If the API fails or times out (>3000ms), serve a random local quote.\n3.  **UI Feedback**: The button must become `disabled` and show a spinner during the `LOADING` state.\n\n**Verification**:\n* Simulate a network failure in your reasoning to ensure the fallback logic is sound.\n* **Visual Check**: Describe the \"Loading\" state UI (e.g., \"Button turns gray, cursor becomes not-allowed, spinner appears next to text\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "4",
-        "title": "Weather Dashboard (God-Tier)",
+        "title": "Weather Dashboard ",
         "description": "Modular React app. Focuses on Separation of Concerns (SoC) and environment security.",
         "tags": [
             "Medium",
@@ -51,13 +51,13 @@
             "Axios",
             "Architecture"
         ],
-        "prompt": "**System Role**: You are a Frontend Solutions Architect.\n**Objective**: Build a scalable Weather Dashboard with strict separation of logic and UI.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Architecture Check**: Before coding, outline the `src` structure. Ensure API calls are NOT inside UI components.\n2.  **Security**: Create a `.env.example` file. Never hardcode API keys.\n\n**Workflow**:\n\n**1. Scaffolding & Core**\n* Setup Vite React project `weather-dash`. Install `axios` and `lucide-react`.\n* Create `src/services/api.js`: Export functions like `fetchWeather(city)`. Handle Axios interceptors for global error logging.\n\n**2. Component Layer**\n* `SearchBar.jsx`: Implement debouncing (wait 500ms before validating) to prevent spamming.\n* `WeatherCard.jsx`: A reusable dumb component for displaying data.\n* `ForecastGrid.jsx`: Iterate over data to render `WeatherCard`s.\n\n**3. Robustness**\n* Handle the `404 City Not Found` edge case by displaying a friendly UI banner, not a browser alert.\n* Add a loading skeleton state (Shimmer effect) using CSS.",
+        "prompt": "**System Role**: You are a Frontend Solutions Architect.\n**Objective**: Build a scalable Weather Dashboard with strict separation of logic and UI.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Architecture Check**: Before coding, outline the `src` structure. Ensure API calls are NOT inside UI components.\n2.  **Security**: Create a `.env.example` file. Never hardcode API keys.\n\n**Workflow**:\n\n**1. Scaffolding & Core**\n* Setup Vite React project `weather-dash`. Install `axios` and `lucide-react`.\n* Create `src/services/api.js`: Export functions like `fetchWeather(city)`. Handle Axios interceptors for global error logging.\n\n**2. Component Layer**\n* `SearchBar.jsx`: Implement debouncing (wait 500ms before validating) to prevent spamming.\n* `WeatherCard.jsx`: A reusable dumb component for displaying data.\n* `ForecastGrid.jsx`: Iterate over data to render `WeatherCard`s.\n\n**3. Robustness**\n* Handle the `404 City Not Found` edge case by displaying a friendly UI banner, not a browser alert.\n* Add a loading skeleton state (Shimmer effect) using CSS.\n\n**Verification**:\n* **Visual Check**: Describe the \"Skeleton Loading\" state layout (e.g., \"Grey pulsing rectangles replace the temperature text and icon while fetching\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "5",
-        "title": "Kanban Board (God-Tier)",
+        "title": "Kanban Board ",
         "description": "Complex interactions with TypeScript. Focuses on Type Safety and optimistic UI updates.",
         "tags": [
             "Medium",
@@ -65,13 +65,13 @@
             "dnd-kit",
             "TypeScript"
         ],
-        "prompt": "**System Role**: You are a Senior UI Engineer specialized in Interaction Design.\n**Objective**: Build a high-performance Kanban Board using `@dnd-kit/core`.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Thinking**: Map out the `onDragOver` vs `onDragEnd` logic in your thinking block. This is where bugs happen.\n2.  **Type Safety**: `strict: true` is assumed. No `any` types allowed. Define generic interfaces for your data.\n\n**Step-by-Step Plan**:\n\n1.  **Setup**: Vite + React + TypeScript + Tailwind. Install `dnd-kit` packages.\n2.  **Domain Modeling**: Create `src/types/kanban.ts` defining `Task`, `Column`, and `BoardState`.\n3.  **State Logic**: Implement a custom hook `useKanbanBoard`.\n    * Use `optimistic` updates for drag operations.\n    * Handle \"Moving a task to an empty column\" (the most common edge case crash).\n4.  **UI Components**:\n    * `Board`: The infinite canvas.\n    * `Column`: Sortable context container.\n    * `Item`: Draggable item.\n\n**Verification**:\n* Ensure that dropping an item *outside* a valid drop zone returns it to its original position smoothly.",
+        "prompt": "**System Role**: You are a Senior UI Engineer specialized in Interaction Design.\n**Objective**: Build a high-performance Kanban Board using `@dnd-kit/core`.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Thinking**: Map out the `onDragOver` vs `onDragEnd` logic in your thinking block. This is where bugs happen.\n2.  **Type Safety**: `strict: true` is assumed. No `any` types allowed. Define generic interfaces for your data.\n\n**Step-by-Step Plan**:\n\n1.  **Setup**: Vite + React + TypeScript + Tailwind. Install `dnd-kit` packages.\n2.  **Domain Modeling**: Create `src/types/kanban.ts` defining `Task`, `Column`, and `BoardState`.\n3.  **State Logic**: Implement a custom hook `useKanbanBoard`.\n    * Use `optimistic` updates for drag operations.\n    * Handle \"Moving a task to an empty column\" (the most common edge case crash).\n4.  **UI Components**:\n    * `Board`: The infinite canvas.\n    * `Column`: Sortable context container.\n    * `Item`: Draggable item.\n\n**Verification**:\n* Ensure that dropping an item *outside* a valid drop zone returns it to its original position smoothly.\n* **Visual Check**: Generate a description of the \"Drag Overlay\" style (e.g., \"The dragged item should rotate 5 degrees and have a shadow-lg to indicate depth\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "6",
-        "title": "Expense Tracker (God-Tier)",
+        "title": "Expense Tracker ",
         "description": "Financial dashboard. Focuses on Data Visualization and Context API performance.",
         "tags": [
             "Medium",
@@ -79,13 +79,13 @@
             "Chart.js",
             "Context API"
         ],
-        "prompt": "**System Role**: You are a Full-Stack JavaScript Developer with a focus on Data structures.\n**Objective**: Build a Personal Finance Visualizer with proper state management.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Data Logic**: In your thinking block, write the pseudocode for reducing the transaction array into category totals for the chart. This must be accurate.\n2.  **Performance**: Use `useMemo` for the chart data calculations to prevent re-rendering the chart on every keystroke.\n\n**Workflow**:\n\n1.  **Context Setup**: Create `GlobalContext` using `useReducer` (not `useState`) to handle complex state mutations (`ADD`, `DELETE`, `LOAD_FROM_STORAGE`).\n2.  **Components**:\n    * `TransactionForm`: Controlled inputs.\n    * `ExpenseChart`: Encapsulate `react-chartjs-2` logic here.\n3.  **Visualization Logic**:\n    * Automatically assign colors to categories based on a predefined palette.\n    * Handle the \"Zero Data\" state (show a placeholder message instead of an empty chart).\n\n**Tools**: Use `write_to_file` to generate the component tree structure first.",
+        "prompt": "**System Role**: You are a Full-Stack JavaScript Developer with a focus on Data structures.\n**Objective**: Build a Personal Finance Visualizer with proper state management.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Data Logic**: In your thinking block, write the pseudocode for reducing the transaction array into category totals for the chart. This must be accurate.\n2.  **Performance**: Use `useMemo` for the chart data calculations to prevent re-rendering the chart on every keystroke.\n\n**Workflow**:\n\n1.  **Context Setup**: Create `GlobalContext` using `useReducer` (not `useState`) to handle complex state mutations (`ADD`, `DELETE`, `LOAD_FROM_STORAGE`).\n2.  **Components**:\n    * `TransactionForm`: Controlled inputs.\n    * `ExpenseChart`: Encapsulate `react-chartjs-2` logic here.\n3.  **Visualization Logic**:\n    * Automatically assign colors to categories based on a predefined palette.\n    * Handle the \"Zero Data\" state (show a placeholder message instead of an empty chart).\n\n**Tools**: Use `write_to_file` to generate the component tree structure first.\n\n**Verification**:\n* **Visual Check**: Describe the layout of the Dashboard (e.g., \"Chart on the left (60%), Transaction List on the right (40%) with scrollable overflow\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "7",
-        "title": "Real-time Chat App (God-Tier)",
+        "title": "Real-time Chat App ",
         "description": "Full-stack concurrent application. Focuses on race conditions and process orchestration.",
         "tags": [
             "Pro",
@@ -93,13 +93,13 @@
             "Socket.io",
             "Full-Stack"
         ],
-        "prompt": "**System Role**: You are a Systems Engineer.\n**Objective**: Build a Client-Server Chat App that handles concurrency gracefully.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Pause Point**: Build the Server first. STOP. Ask for confirmation before building the Client. Do not mix contexts.\n2.  **Race Conditions**: Handle the case where the client connects before the server is ready.\n\n**Phase 1: The Server**\n* Structure: `server/index.js`.\n* Stack: Express + Socket.io + CORS.\n* **Logic**: Maintain a `Users` Map. Handle `disconnect` events to clean up memory (prevent leaks).\n\n**Phase 2: The Client (Wait for User Trigger)**\n* Structure: `client/` (Vite React).\n* **Hook**: Create `useChat` to wrap socket listeners. Ensure listeners are removed in the `useEffect` cleanup function (prevent double-firing messages).\n\n**Phase 3: Orchestration**\n* Root `package.json`: script `\"dev\": \"concurrently 'npm run server' 'npm run client'\"`.\n\n**Verification**:\n* The system must support a user refreshing the page without losing their connection status.",
+        "prompt": "**System Role**: You are a Systems Engineer.\n**Objective**: Build a Client-Server Chat App that handles concurrency gracefully.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Pause Point**: Build the Server first. STOP. Ask for confirmation before building the Client. Do not mix contexts.\n2.  **Race Conditions**: Handle the case where the client connects before the server is ready.\n\n**Phase 1: The Server**\n* Structure: `server/index.js`.\n* Stack: Express + Socket.io + CORS.\n* **Logic**: Maintain a `Users` Map. Handle `disconnect` events to clean up memory (prevent leaks).\n\n**Phase 2: The Client (Wait for User Trigger)**\n* Structure: `client/` (Vite React).\n* **Hook**: Create `useChat` to wrap socket listeners. Ensure listeners are removed in the `useEffect` cleanup function (prevent double-firing messages).\n\n**Phase 3: Orchestration**\n* Root `package.json`: script `\"dev\": \"concurrently 'npm run server' 'npm run client'\"`.\n\n**Verification**:\n* The system must support a user refreshing the page without losing their connection status.\n* **Visual Check**: Describe the \"Message Bubble\" UI (e.g., \"My messages: Right-aligned blue bubble. Others: Left-aligned gray bubble\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "8",
-        "title": "E-commerce Storefront (God-Tier)",
+        "title": "E-commerce Storefront ",
         "description": "Next.js App Router. Focuses on Server vs. Client component boundaries and Zustand.",
         "tags": [
             "Pro",
@@ -107,13 +107,13 @@
             "Zustand",
             "TypeScript"
         ],
-        "prompt": "**System Role**: You are a Next.js Expert.\n**Objective**: Build a high-performance E-commerce Store using Next.js 14+ patterns.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Boundary Check**: In your `<thinking>`, explicitly list which components will be `'use client'` and which will be Server Components. Minimize client-side JS.\n2.  **Type Safety**: Define the `Product` and `CartItem` interfaces immediately.\n\n**Workflow**:\n\n1.  **Scaffold**: `create-next-app` with TS, Tailwind, ESLint.\n2.  **State (Zustand)**:\n    * Create `store/cartStore.ts`. Use the `persist` middleware for local storage.\n    * **Hydration Fix**: Implement a `useStore` hook to prevent the \"Hydration Mismatch\" error common with persisted Zustand stores in Next.js.\n3.  **UI Implementation**:\n    * `ProductCard`: Use `next/image` with proper `sizes` prop for LCP optimization.\n    * `CartSidebar`: Accessible modal (trap focus when open).\n4.  **Routing**:\n    * Implement Dynamic Routes `[id]` for products.\n\n**Verification**:\n* Run `npm run build` to ensure static generation works correctly.",
+        "prompt": "**System Role**: You are a Next.js Expert.\n**Objective**: Build a high-performance E-commerce Store using Next.js 14+ patterns.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Boundary Check**: In your `<thinking>`, explicitly list which components will be `'use client'` and which will be Server Components. Minimize client-side JS.\n2.  **Type Safety**: Define the `Product` and `CartItem` interfaces immediately.\n\n**Workflow**:\n\n1.  **Scaffold**: `create-next-app` with TS, Tailwind, ESLint.\n2.  **State (Zustand)**:\n    * Create `store/cartStore.ts`. Use the `persist` middleware for local storage.\n    * **Hydration Fix**: Implement a `useStore` hook to prevent the \"Hydration Mismatch\" error common with persisted Zustand stores in Next.js.\n3.  **UI Implementation**:\n    * `ProductCard`: Use `next/image` with proper `sizes` prop for LCP optimization.\n    * `CartSidebar`: Accessible modal (trap focus when open).\n4.  **Routing**:\n    * Implement Dynamic Routes `[id]` for products.\n\n**Verification**:\n* Run `npm run build` to ensure static generation works correctly.\n* **Visual Check**: Describe the Cart Sidebar open state (e.g., \"Slide-in from right, backdrop blur, total price stuck to bottom\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "9",
-        "title": "Blog Platform with Auth (God-Tier)",
+        "title": "Blog Platform with Auth ",
         "description": "Database-backed application. Focuses on Security, Env management, and Schema design.",
         "tags": [
             "Pro",
@@ -121,7 +121,7 @@
             "Prisma",
             "NextAuth"
         ],
-        "prompt": "**System Role**: You are a Backend Security Engineer.\n**Objective**: Build a secure Blog Platform with Role-Based Access Control (RBAC).\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Security First**: Never commit `.env`. Always generate `.env.example`. \n2.  **Schema Design**: Output the Prisma Schema in your `<thinking>` block before writing the file.\n\n**Phase 1: Database & Auth**\n* Initialize Prisma with SQLite (for dev speed).\n* Schema: `User`, `Post` (with `published` boolean), `Account` (for OAuth).\n* Setup NextAuth v5. Protect routes: Only authenticated users can POST to `/api/posts`.\n\n**Phase 2: API & Data**\n* Create strict Type Validation (Zod) for the API routes. Do not trust user input.\n* Implement `GET /api/posts` (Public) and `POST /api/posts` (Protected).\n\n**Phase 3: Frontend**\n* Use `useSession` to conditionally render the \"Write Post\" button.\n* Implement a loading state while checking session validity.\n\n**Tools**: Use `write_to_file` to create the schema and API routes.",
+        "prompt": "**System Role**: You are a Backend Security Engineer.\n**Objective**: Build a secure Blog Platform with Role-Based Access Control (RBAC).\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Security First**: Never commit `.env`. Always generate `.env.example`. \n2.  **Schema Design**: Output the Prisma Schema in your `<thinking>` block before writing the file.\n\n**Phase 1: Database & Auth**\n* Initialize Prisma with SQLite (for dev speed).\n* Schema: `User`, `Post` (with `published` boolean), `Account` (for OAuth).\n* Setup NextAuth v5. Protect routes: Only authenticated users can POST to `/api/posts`.\n\n**Phase 2: API & Data**\n* Create strict Type Validation (Zod) for the API routes. Do not trust user input.\n* Implement `GET /api/posts` (Public) and `POST /api/posts` (Protected).\n\n**Phase 3: Frontend**\n* Use `useSession` to conditionally render the \"Write Post\" button.\n* Implement a loading state while checking session validity.\n\n**Tools**: Use `write_to_file` to create the schema and API routes.\n\n**Verification**:\n* **Visual Check**: Describe the \"Dashboard\" view for a logged-in user vs. a guest (e.g., \"Guests see 'Login' button in header; Users see Avatar + 'Create Post'\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
@@ -136,13 +136,13 @@
             "Supabase",
             "MCP"
         ],
-        "prompt": "**System Role**: You are a Principal Software Architect.\n**Objective**: Scaffold a Production-Ready SaaS Boilerplate. You value \"Clean Code\" and \"DRY\" principles.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Incremental Build**: Execute **Phase 1 ONLY**, then STOP and ask \"Proceed to Phase 2?\". Do not attempt to build the entire app in one turn or you will run out of tokens.\n2.  **Tree Visualization**: Output the full intended file structure before writing any code.\n\n**Phase 1: Foundation (Execute This Now)**\n1.  **Scaffold**: Next.js 14 (App Router) + Shadcn/UI.\n2.  **Database**: Create `db/schema.ts` (Drizzle ORM). Define `profiles` and `subscriptions`. Create a migration script.\n3.  **Env**: Generate `.env.example` with comments explaining how to get Stripe/Supabase keys.\n\n**Phase 2: Integration (Await Trigger)**\n* **Stripe**: Setup Webhook handler at `api/webhooks/stripe`. Verify signatures strictly.\n* **Dashboard**: Create a protected layout that redirects unauthenticated users.\n\n**Verification**:\n* Run `tsc --noEmit` to ensure the scaffold is type-safe.",
+        "prompt": "**System Role**: You are a Principal Software Architect.\n**Objective**: Scaffold a Production-Ready SaaS Boilerplate. You value \"Clean Code\" and \"DRY\" principles.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Incremental Build**: Execute **Phase 1 ONLY**, then STOP and ask \"Proceed to Phase 2?\". Do not attempt to build the entire app in one turn or you will run out of tokens.\n2.  **Tree Visualization**: Output the full intended file structure before writing any code.\n\n**Phase 1: Foundation (Execute This Now)**\n1.  **Scaffold**: Next.js 14 (App Router) + Shadcn/UI.\n2.  **Database**: Create `db/schema.ts` (Drizzle ORM). Define `profiles` and `subscriptions`. Create a migration script.\n3.  **Env**: Generate `.env.example` with comments explaining how to get Stripe/Supabase keys.\n\n**Phase 2: Integration (Await Trigger)**\n* **Stripe**: Setup Webhook handler at `api/webhooks/stripe`. Verify signatures strictly.\n* **Dashboard**: Create a protected layout that redirects unauthenticated users.\n\n**Verification**:\n* Run `tsc --noEmit` to ensure the scaffold is type-safe.\n* **Visual Check**: Generate a screenshot description of the Dashboard sidebar navigation (e.g., \"Sticky sidebar with 'Billing', 'Settings', 'Home' links using Lucide icons\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "11",
-        "title": "RAG AI Pipeline (God-Tier)",
+        "title": "RAG AI Pipeline ",
         "description": "Python AI Engineering. Focuses on Environment isolation and API rate limiting.",
         "tags": [
             "Expert",
@@ -151,13 +151,13 @@
             "RAG",
             "FastAPI"
         ],
-        "prompt": "**System Role**: You are a MLOps Engineer.\n**Objective**: Build a robust RAG Pipeline with clear separation of ingestion and inference.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Environment Hell**: You must strictly control the python environment. Explicitly instruct the user to activate `venv`.\n2.  **Secrets**: Use `python-dotenv`. Never expose API keys in code.\n\n**Phase 1: The Backend (FastAPI)**\n* Create `backend/`.\n* **Dependencies**: `fastapi`, `uvicorn`, `chromadb`, `langchain`, `pypdf`, `openai`.\n* **Ingestion Endpoint**: Accepts PDF. Splitting strategy: `RecursiveCharacterTextSplitter` (chunk size 1000). Store in ChromaDB.\n* **Chat Endpoint**: RAG logic. Retrieve top 3 chunks. Inject into System Prompt. Return Stream.\n\n**Phase 2: The Frontend (Next.js)**\n* Simple Chat UI with a File Upload zone.\n* **Feedback**: Show \"Processing PDF...\" status during ingestion.\n\n**Verification**:\n* Add a test script `test_api.py` to ping the health endpoint.",
+        "prompt": "**System Role**: You are a MLOps Engineer.\n**Objective**: Build a robust RAG Pipeline with clear separation of ingestion and inference.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Environment Hell**: You must strictly control the python environment. Explicitly instruct the user to activate `venv`.\n2.  **Secrets**: Use `python-dotenv`. Never expose API keys in code.\n\n**Phase 1: The Backend (FastAPI)**\n* Create `backend/`.\n* **Dependencies**: `fastapi`, `uvicorn`, `chromadb`, `langchain`, `pypdf`, `openai`.\n* **Ingestion Endpoint**: Accepts PDF. Splitting strategy: `RecursiveCharacterTextSplitter` (chunk size 1000). Store in ChromaDB.\n* **Chat Endpoint**: RAG logic. Retrieve top 3 chunks. Inject into System Prompt. Return Stream.\n\n**Phase 2: The Frontend (Next.js)**\n* Simple Chat UI with a File Upload zone.\n* **Feedback**: Show \"Processing PDF...\" status during ingestion.\n\n**Verification**:\n* Add a test script `test_api.py` to ping the health endpoint.\n* **Visual Check**: Describe the Chat UI (e.g., \"Chat window takes 80% height, fixed input bar at bottom, file upload button top-right\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
     {
         "id": "12",
-        "title": "Collaborative Whiteboard (God-Tier)",
+        "title": "Collaborative Whiteboard ",
         "description": "Real-time distributed system. Focuses on CRDT logic and performance optimization.",
         "tags": [
             "Expert",
@@ -166,7 +166,7 @@
             "Canvas",
             "Liveblocks"
         ],
-        "prompt": "**System Role**: You are a Real-Time Systems Architect.\n**Objective**: Build a Multiplayer Infinite Canvas (Figma Lite) using CRDTs.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Thinking**: You must explain the CRDT data structure in your thinking block. How will you handle `layers` vs `layerIds`?\n2.  **Performance**: Canvas rendering is expensive. You must use `React.memo` for the Layer components.\n\n**Phase 1: Configuration**\n* Setup Next.js + Liveblocks.\n* **Config**: Define `liveblocks.config.ts`. Storage: `layers` (LiveMap), `layerIds` (LiveList). Presence: `cursor` (x, y).\n\n**Phase 2: Canvas Logic**\n* **Event Handling**: Implement `onPointerDown` (start shape), `onPointerMove` (resize/preview), `onPointerUp` (commit to Storage).\n* **Multiplayer**: Render other users' cursors using the `useOthers()` hook.\n* **Undo/Redo**: Connect the Liveblocks history API to keyboard shortcuts (Ctrl+Z).\n\n**Verification**:\n* The app must handle 2 users drawing simultaneously without state divergence.",
+        "prompt": "**System Role**: You are a Real-Time Systems Architect.\n**Objective**: Build a Multiplayer Infinite Canvas (Figma Lite) using CRDTs.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Thinking**: You must explain the CRDT data structure in your thinking block. How will you handle `layers` vs `layerIds`?\n2.  **Performance**: Canvas rendering is expensive. You must use `React.memo` for the Layer components.\n\n**Phase 1: Configuration**\n* Setup Next.js + Liveblocks.\n* **Config**: Define `liveblocks.config.ts`. Storage: `layers` (LiveMap), `layerIds` (LiveList). Presence: `cursor` (x, y).\n\n**Phase 2: Canvas Logic**\n* **Event Handling**: Implement `onPointerDown` (start shape), `onPointerMove` (resize/preview), `onPointerUp` (commit to Storage).\n* **Multiplayer**: Render other users' cursors using the `useOthers()` hook.\n* **Undo/Redo**: Connect the Liveblocks history API to keyboard shortcuts (Ctrl+Z).\n\n**Verification**:\n* The app must handle 2 users drawing simultaneously without state divergence.\n* **Visual Check**: Describe the \"Remote User Cursor\" look (e.g., \"Arrow pointer with user's name in a colored pill floating above it\").",
         "author": "Santhosh Sachin",
         "createdAt": "2025-12-09T10:00:00Z"
     },
@@ -181,7 +181,9 @@
             "Streamlit",
             "Scikit-learn"
         ],
-        "prompt": "**System Role**: You are a Lead Data Scientist specializing in Industrial IoT.\n**Objective**: Build a Predictive Maintenance System for turbofan engines (using the NASA CMAPSS dataset).\n\n**CRITICAL INSTRUCTIONS**:\n1.  **EDA First**: In your `<thinking>`, analyze the sensor correlations. Do not just dump code.\n2.  **Feature Engineering**: Create rolling averages and lag features. This is critical for time-series.\n\n**Phase 1: Pipeline**\n* **Setup**: Create `data_pipeline.py`. Load data.\n* **Preprocessing**: Normalization (MinMax). Handle missing values.\n* **Training**: Train an LSTM (Long Short-Term Memory) or XGBoost model to predict RUL (Remaining Useful Life).\n* **Export**: Save the model as `model.pkl`.\n\n**Phase 2: Dashboard (Streamlit)**\n* **UI**: Create `app.py`. Allow users to upload sensor data CSV.\n* **Viz**: Plot the RUL degradation curve using Plotly.\n\n**Verification**:\n* Ensure the RUL prediction decreases as the engine cycles increase."
+        "prompt": "**System Role**: You are a Lead Data Scientist specializing in Industrial IoT.\n**Objective**: Build a Predictive Maintenance System for turbofan engines (using the NASA CMAPSS dataset).\n\n**CRITICAL INSTRUCTIONS**:\n1.  **EDA First**: In your `<thinking>`, analyze the sensor correlations. Do not just dump code.\n2.  **Feature Engineering**: Create rolling averages and lag features. This is critical for time-series.\n\n**Phase 1: Pipeline**\n* **Setup**: Create `data_pipeline.py`. Load data.\n* **Preprocessing**: Normalization (MinMax). Handle missing values.\n* **Training**: Train an LSTM (Long Short-Term Memory) or XGBoost model to predict RUL (Remaining Useful Life).\n* **Export**: Save the model as `model.pkl`.\n\n**Phase 2: Dashboard (Streamlit)**\n* **UI**: Create `app.py`. Allow users to upload sensor data CSV.\n* **Viz**: Plot the RUL degradation curve using Plotly.\n\n**Verification**:\n* Ensure the RUL prediction decreases as the engine cycles increase.\n* **Visual Check**: Describe the Streamlit layout (e.g., \"Sidebar for file upload. Main area shows Gauge Chart for 'Engine Health' and Line Chart for 'Vibration History'\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "14",
@@ -193,7 +195,9 @@
             "PyTorch",
             "Medical AI"
         ],
-        "prompt": "**System Role**: You are a Medical AI Researcher.\n**Objective**: Build a refined CNN to detect Pneumonia from Chest X-Rays.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Ethical AI**: In `<thinking>`, discuss the importance of False Negatives in medical diagnosis.\n2.  **Augmentation**: You MUST use `torchvision.transforms` for rotation, scaling, and flipping to prevent overfitting.\n\n**Phase 1: Model Training**\n* **Architecture**: Transfer Learning using ResNet18 (pretrained). Freeze early layers.\n* **Loss Function**: Weighted CrossEntropy (to handle class imbalance).\n* **Training Loop**: Implement Early Stopping.\n\n**Phase 2: Explainability**\n* **Inference**: Create `predict.py`.\n* **Grad-CAM**: Implement a function to overlay a heatmap on the X-ray showing *where* the model is looking.\n\n**Verification**:\n* The model should achieve >85% recall."
+        "prompt": "**System Role**: You are a Medical AI Researcher.\n**Objective**: Build a refined CNN to detect Pneumonia from Chest X-Rays.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Ethical AI**: In `<thinking>`, discuss the importance of False Negatives in medical diagnosis.\n2.  **Augmentation**: You MUST use `torchvision.transforms` for rotation, scaling, and flipping to prevent overfitting.\n\n**Phase 1: Model Training**\n* **Architecture**: Transfer Learning using ResNet18 (pretrained). Freeze early layers.\n* **Loss Function**: Weighted CrossEntropy (to handle class imbalance).\n* **Training Loop**: Implement Early Stopping.\n\n**Phase 2: Explainability**\n* **Inference**: Create `predict.py`.\n* **Grad-CAM**: Implement a function to overlay a heatmap on the X-ray showing *where* the model is looking.\n\n**Verification**:\n* The model should achieve >85% recall.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "15",
@@ -206,7 +210,9 @@
             "LangChain",
             "VectorDB"
         ],
-        "prompt": "**System Role**: You are an AI Systems Engineer.\n**Objective**: Build a Private, Offline RAG (Retrieval Augmented Generation) System.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Privacy**: No OpenAI. Use `Ollama` for the LLM and `HuggingFace` for embeddings.\n2.  **Tree**: Output the folder structure for `ingest.py` vs `server.py`.\n\n**Phase 1: Ingestion Engine**\n* **Stack**: Python + LangChain + ChromaDB.\n* **Logic**: Load PDF -> Split (RecursiveCharacterTextSplitter) -> Embed (all-MiniLM-L6-v2) -> Store.\n\n**Phase 2: Retrieval Chain**\n* **LLM**: Connect to local Ollama instance (Llama 3).\n* **Prompt**: Use a strict \"Answer only based on context\" system prompt.\n* **Citations**: The response MUST include the source page number.\n\n**Phase 3: Verification**\n* Test with a technical manual. Ask a specific question found on page 10."
+        "prompt": "**System Role**: You are an AI Systems Engineer.\n**Objective**: Build a Private, Offline RAG (Retrieval Augmented Generation) System.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Privacy**: No OpenAI. Use `Ollama` for the LLM and `HuggingFace` for embeddings.\n2.  **Tree**: Output the folder structure for `ingest.py` vs `server.py`.\n\n**Phase 1: Ingestion Engine**\n* **Stack**: Python + LangChain + ChromaDB.\n* **Logic**: Load PDF -> Split (RecursiveCharacterTextSplitter) -> Embed (all-MiniLM-L6-v2) -> Store.\n\n**Phase 2: Retrieval Chain**\n* **LLM**: Connect to local Ollama instance (Llama 3).\n* **Prompt**: Use a strict \"Answer only based on context\" system prompt.\n* **Citations**: The response MUST include the source page number.\n\n**Phase 3: Verification**\n* Test with a technical manual. Ask a specific question found on page 10.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "16",
@@ -219,7 +225,9 @@
             "Riverpod",
             "WebSocket"
         ],
-        "prompt": "**System Role**: You are a Senior Mobile Engineer (Flutter).\n**Objective**: Build the Rider Interface for a Ride-Hailing App.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **State Management**: Use Riverpod. No `setState` spaghetti.\n2.  **Maps**: Do NOT mock the map. Use `Maps_flutter`.\n\n**Phase 1: Core Map UI**\n* **Scaffold**: `flutter create uber_clone`.\n* **Map**: Render the map full screen. Request Location Permissions.\n* **Markers**: Show \"Available Cars\" moving smoothly (simulate movement with interpolation).\n\n**Phase 2: Booking Flow**\n* **Bottom Sheet**: Draggable scrollable sheet for entering destination.\n* **Polyline**: Draw the route from Pickup to Dropoff using the Directions API.\n* **Pricing**: Calculate estimate based on distance.\n\n**Verification**:\n* The car markers must not \"jump\" when updating position; they should animate."
+        "prompt": "**System Role**: You are a Senior Mobile Engineer (Flutter).\n**Objective**: Build the Rider Interface for a Ride-Hailing App.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **State Management**: Use Riverpod. No `setState` spaghetti.\n2.  **Maps**: Do NOT mock the map. Use `Maps_flutter`.\n\n**Phase 1: Core Map UI**\n* **Scaffold**: `flutter create uber_clone`.\n* **Map**: Render the map full screen. Request Location Permissions.\n* **Markers**: Show \"Available Cars\" moving smoothly (simulate movement with interpolation).\n\n**Phase 2: Booking Flow**\n* **Bottom Sheet**: Draggable scrollable sheet for entering destination.\n* **Polyline**: Draw the route from Pickup to Dropoff using the Directions API.\n* **Pricing**: Calculate estimate based on distance.\n\n**Verification**:\n* The car markers must not \"jump\" when updating position; they should animate.\n* **Visual Check**: Generate a screenshot description of the Bottom Sheet (e.g., \"Rounded corners, top 20% shows 'Where to?', list of recent locations below\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "17",
@@ -232,7 +240,9 @@
             "Redis",
             "Distributed Systems"
         ],
-        "prompt": "**System Role**: You are a Distributed Systems Architect.\n**Objective**: Build a high-performance HTTP Middleware Rate Limiter.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Algorithm**: Do not use a library. Implement \"Sliding Window Log\" or \"Token Bucket\" manually in Redis Lua scripts.\n2.  **Concurrency**: Handle race conditions. Two requests at the exact same millisecond must be counted correctly.\n\n**Phase 1: The Strategy**\n* **Language**: Go (Golang) or Rust.\n* **Redis**: Write a Lua script to atomically decrement tokens.\n\n**Phase 2: The Middleware**\n* **Interceptor**: Create a middleware that checks the IP address against Redis.\n* **Headers**: Return `X-RateLimit-Remaining` and `X-RateLimit-Reset`.\n\n**Verification**:\n* Write a script that fires 100 requests in 1 second. The 11th request (if limit is 10) MUST return 429."
+        "prompt": "**System Role**: You are a Distributed Systems Architect.\n**Objective**: Build a high-performance HTTP Middleware Rate Limiter.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Algorithm**: Do not use a library. Implement \"Sliding Window Log\" or \"Token Bucket\" manually in Redis Lua scripts.\n2.  **Concurrency**: Handle race conditions. Two requests at the exact same millisecond must be counted correctly.\n\n**Phase 1: The Strategy**\n* **Language**: Go (Golang) or Rust.\n* **Redis**: Write a Lua script to atomically decrement tokens.\n\n**Phase 2: The Middleware**\n* **Interceptor**: Create a middleware that checks the IP address against Redis.\n* **Headers**: Return `X-RateLimit-Remaining` and `X-RateLimit-Reset`.\n\n**Verification**:\n* Write a script that fires 100 requests in 1 second. The 11th request (if limit is 10) MUST return 429.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "18",
@@ -245,7 +255,9 @@
             "Hardhat",
             "DeFi"
         ],
-        "prompt": "**System Role**: You are a Smart Contract Auditor and Developer.\n**Objective**: Build a Uniswap V2 clone (CPMM - Constant Product Market Maker).\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Security**: Prevent Reentrancy attacks using `ReentrancyGuard`.\n2.  **Math**: Use SafeMath (or Solidity 0.8+ built-in checks) for the `x * y = k` formula.\n\n**Phase 1: The Token**\n* Create two ERC-20 tokens: `Gold` and `Silver` for testing.\n\n**Phase 2: The Pool Contract**\n* **Add Liquidity**: Function to deposit Token A and Token B. Mint \"LP Tokens\" to the user.\n* **Swap**: Function `swap(amountIn, minAmountOut)`. Calculate output amount including a 0.3% fee.\n\n**Verification**:\n* Write a test in Hardhat where a user swaps 10 Gold for X Silver, and the price of Gold increases for the next user."
+        "prompt": "**System Role**: You are a Smart Contract Auditor and Developer.\n**Objective**: Build a Uniswap V2 clone (CPMM - Constant Product Market Maker).\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Security**: Prevent Reentrancy attacks using `ReentrancyGuard`.\n2.  **Math**: Use SafeMath (or Solidity 0.8+ built-in checks) for the `x * y = k` formula.\n\n**Phase 1: The Token**\n* Create two ERC-20 tokens: `Gold` and `Silver` for testing.\n\n**Phase 2: The Pool Contract**\n* **Add Liquidity**: Function to deposit Token A and Token B. Mint \"LP Tokens\" to the user.\n* **Swap**: Function `swap(amountIn, minAmountOut)`. Calculate output amount including a 0.3% fee.\n\n**Verification**:\n* Write a test in Hardhat where a user swaps 10 Gold for X Silver, and the price of Gold increases for the next user.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "19",
@@ -258,7 +270,9 @@
             "Kubernetes",
             "Operator SDK"
         ],
-        "prompt": "**System Role**: You are a Site Reliability Engineer (SRE).\n**Objective**: Build a Kubernetes Operator that watches a CRD (Custom Resource Definition) and deploys a Nginx server.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Reconciliation Loop**: Explain the `Reconcile` logic in `<thinking>`. It must be idempotent.\n\n**Phase 1: Scaffold**\n* Use `kubebuilder` or `operator-sdk` to init the project.\n* **CRD**: Define `Website` resource with fields: `image`, `replicas`, `domain`.\n\n**Phase 2: Controller Logic**\n* **Watch**: Observe changes to `Website` resources.\n* **Act**: If a `Website` is created, spin up a Deployment and Service.\n* **Heal**: If the user manually deletes the Deployment, the Operator must recreate it immediately.\n\n**Verification**:\n* Apply the CRD. Delete the Nginx pod. Watch it magically reappear."
+        "prompt": "**System Role**: You are a Site Reliability Engineer (SRE).\n**Objective**: Build a Kubernetes Operator that watches a CRD (Custom Resource Definition) and deploys a Nginx server.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Reconciliation Loop**: Explain the `Reconcile` logic in `<thinking>`. It must be idempotent.\n\n**Phase 1: Scaffold**\n* Use `kubebuilder` or `operator-sdk` to init the project.\n* **CRD**: Define `Website` resource with fields: `image`, `replicas`, `domain`.\n\n**Phase 2: Controller Logic**\n* **Watch**: Observe changes to `Website` resources.\n* **Act**: If a `Website` is created, spin up a Deployment and Service.\n* **Heal**: If the user manually deletes the Deployment, the Operator must recreate it immediately.\n\n**Verification**:\n* Apply the CRD. Delete the Nginx pod. Watch it magically reappear.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "20",
@@ -270,7 +284,9 @@
             "SQLite",
             "Clean Architecture"
         ],
-        "prompt": "**System Role**: You are a Mobile Architect.\n**Objective**: Build a Notes app that works offline and syncs when online.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Database**: Use `Drift` (Flutter) or `Room` (Android Native).\n2.  **Sync Logic**: Implement a \"Last Write Wins\" strategy for conflict resolution.\n\n**Phase 1: Local Data Layer**\n* Create the SQLite schema.\n* Implement Repository pattern: `NoteRepository.getNotes()` should return local data first.\n\n**Phase 2: Sync Mechanism**\n* Create a background worker.\n* When internet is available, push dirty records (marked `is_synced: false`) to the mock API.\n\n**Verification**:\n* Turn off WiFi. Create a note. Close app. Open app. Turn on WiFi. Verify the note is sent to the server log."
+        "prompt": "**System Role**: You are a Mobile Architect.\n**Objective**: Build a Notes app that works offline and syncs when online.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Database**: Use `Drift` (Flutter) or `Room` (Android Native).\n2.  **Sync Logic**: Implement a \"Last Write Wins\" strategy for conflict resolution.\n\n**Phase 1: Local Data Layer**\n* Create the SQLite schema.\n* Implement Repository pattern: `NoteRepository.getNotes()` should return local data first.\n\n**Phase 2: Sync Mechanism**\n* Create a background worker.\n* When internet is available, push dirty records (marked `is_synced: false`) to the mock API.\n\n**Verification**:\n* Turn off WiFi. Create a note. Close app. Open app. Turn on WiFi. Verify the note is sent to the server log.\n* **Visual Check**: Generate a screenshot description of the Note Grid (e.g., \"Masonry layout, each note has a snippet of text and a 'Syncing' icon if offline\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "21",
@@ -283,7 +299,9 @@
             "Canvas API",
             "Next.js"
         ],
-        "prompt": "**System Role**: You are a Frontend Performance Engineer.\n**Objective**: Build a shared canvas where multiple users draw simultaneously.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Network Optimization**: Do not send every mouse movement. Batch updates or throttle to 30ms.\n2.  **Canvas**: Use the HTML5 Canvas API (or React Konva).\n\n**Phase 1: The Server**\n* Node.js + Socket.io.\n* Events: `draw_line`, `clear_board`.\n\n**Phase 2: The Client**\n* **Drawing Logic**: Capture `mousedown`, `mousemove`, `mouseup`.\n* **Interpolation**: Smooth out the lines received from other users so they don't look jagged.\n\n**Verification**:\n* Open two browser tabs. Draw in one. It should appear instantly in the other."
+        "prompt": "**System Role**: You are a Frontend Performance Engineer.\n**Objective**: Build a shared canvas where multiple users draw simultaneously.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Network Optimization**: Do not send every mouse movement. Batch updates or throttle to 30ms.\n2.  **Canvas**: Use the HTML5 Canvas API (or React Konva).\n\n**Phase 1: The Server**\n* Node.js + Socket.io.\n* Events: `draw_line`, `clear_board`.\n\n**Phase 2: The Client**\n* **Drawing Logic**: Capture `mousedown`, `mousemove`, `mouseup`.\n* **Interpolation**: Smooth out the lines received from other users so they don't look jagged.\n\n**Verification**:\n* Open two browser tabs. Draw in one. It should appear instantly in the other.\n* **Visual Check**: Describe the Tool Toolbar (e.g., \"Floating pill at bottom center with icons for Pencil, Eraser, Color Picker\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "22",
@@ -296,7 +314,9 @@
             "Docker",
             "XGBoost"
         ],
-        "prompt": "**System Role**: You are an ML Ops Engineer.\n**Objective**: Deploy a Fraud Detection model as a scalable API.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Latency**: The API response must be <100ms.\n2.  **Data**: Use the Credit Card Fraud Detection dataset (Kaggle).\n\n**Phase 1: Training**\n* Handle imbalance using SMOTE or Class Weights.\n* Train XGBoost.\n\n**Phase 2: Serving**\n* Create a FastAPI app.\n* Define Pydantic models for input validation.\n* **Dockerize**: Create a lean `Dockerfile` (multistage build).\n\n**Verification**:\n* Send a curl request with transaction details. Receive `{\"fraud\": false, \"probability\": 0.04}`."
+        "prompt": "**System Role**: You are an ML Ops Engineer.\n**Objective**: Deploy a Fraud Detection model as a scalable API.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Latency**: The API response must be <100ms.\n2.  **Data**: Use the Credit Card Fraud Detection dataset (Kaggle).\n\n**Phase 1: Training**\n* Handle imbalance using SMOTE or Class Weights.\n* Train XGBoost.\n\n**Phase 2: Serving**\n* Create a FastAPI app.\n* Define Pydantic models for input validation.\n* **Dockerize**: Create a lean `Dockerfile` (multistage build).\n\n**Verification**:\n* Send a curl request with transaction details. Receive `{\"fraud\": false, \"probability\": 0.04}`.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "23",
@@ -309,7 +329,9 @@
             "Graph Theory",
             "Cron"
         ],
-        "prompt": "**System Role**: You are a Backend Architect.\n**Objective**: Build a mini Task Scheduler that executes tasks based on dependencies.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Data Structure**: Represent tasks as a DAG.\n2.  **Cycle Detection**: Prevent the system from running if A depends on B and B depends on A.\n\n**Phase 1: The Graph**\n* Define a `Task` class with `dependencies` list.\n* Implement a Topological Sort algorithm to determine execution order.\n\n**Phase 2: Execution Engine**\n* Use Python's `asyncio` to run independent tasks in parallel.\n* Implement retry logic (3 retries with exponential backoff) for failed tasks.\n\n**Verification**:\n* Define Task A, Task B (depends on A), Task C (depends on A). Run. A should finish before B and C start."
+        "prompt": "**System Role**: You are a Backend Architect.\n**Objective**: Build a mini Task Scheduler that executes tasks based on dependencies.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Data Structure**: Represent tasks as a DAG.\n2.  **Cycle Detection**: Prevent the system from running if A depends on B and B depends on A.\n\n**Phase 1: The Graph**\n* Define a `Task` class with `dependencies` list.\n* Implement a Topological Sort algorithm to determine execution order.\n\n**Phase 2: Execution Engine**\n* Use Python's `asyncio` to run independent tasks in parallel.\n* Implement retry logic (3 retries with exponential backoff) for failed tasks.\n\n**Verification**:\n* Define Task A, Task B (depends on A), Task C (depends on A). Run. A should finish before B and C start.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "24",
@@ -322,7 +344,9 @@
             "D3.js",
             "Parsing"
         ],
-        "prompt": "**System Role**: You are a UI/UX Developer.\n**Objective**: Build a dashboard to visualize CSV bank statements.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Privacy**: Data processing must happen Client-Side only. No file uploads to server.\n2.  **Parsing**: Use `PapaParse` to handle messy CSVs.\n\n**Phase 1: Parser**\n* Upload CSV.\n* Categorize transactions using simple keyword matching (e.g., \"Uber\" -> \"Transport\").\n\n**Phase 2: Charts**\n* **Sunburst Chart**: Show spending hierarchy (Category -> Subcategory).\n* **Line Chart**: Show monthly spending trends.\n\n**Verification**:\n* Upload a dummy bank statement. The total balance calculated must match the CSV sum."
+        "prompt": "**System Role**: You are a UI/UX Developer.\n**Objective**: Build a dashboard to visualize CSV bank statements.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Privacy**: Data processing must happen Client-Side only. No file uploads to server.\n2.  **Parsing**: Use `PapaParse` to handle messy CSVs.\n\n**Phase 1: Parser**\n* Upload CSV.\n* Categorize transactions using simple keyword matching (e.g., \"Uber\" -> \"Transport\").\n\n**Phase 2: Charts**\n* **Sunburst Chart**: Show spending hierarchy (Category -> Subcategory).\n* **Line Chart**: Show monthly spending trends.\n\n**Verification**:\n* Upload a dummy bank statement. The total balance calculated must match the CSV sum.\n* **Visual Check**: Generate a screenshot description of the Sunburst Chart (e.g., \"Inner ring shows main categories, outer ring shows subcategories. Tooltip on hover shows exact amount\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "25",
@@ -335,7 +359,9 @@
             "Pinata",
             "Ethereum"
         ],
-        "prompt": "**System Role**: You are a Web3 Developer.\n**Objective**: Build a \"Generative Art Minter\".\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Storage**: Metadata MUST be stored on IPFS (use Pinata), not a central server.\n2.  **Contract**: Use OpenZeppelin's `ERC721URIStorage`.\n\n**Phase 1: Smart Contract**\n* Write `ArtToken.sol`.\n* Function `mintNFT(address recipient, string tokenURI)`.\n\n**Phase 2: Frontend**\n* **Upload**: User uploads an image -> Sent to Pinata IPFS -> Hash returned.\n* **Mint**: User clicks \"Mint\", Metamask pops up, contract is called with the IPFS Hash.\n\n**Verification**:\n* Mint an NFT. View it on OpenSea Testnet (Sepolia)."
+        "prompt": "**System Role**: You are a Web3 Developer.\n**Objective**: Build a \"Generative Art Minter\".\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Storage**: Metadata MUST be stored on IPFS (use Pinata), not a central server.\n2.  **Contract**: Use OpenZeppelin's `ERC721URIStorage`.\n\n**Phase 1: Smart Contract**\n* Write `ArtToken.sol`.\n* Function `mintNFT(address recipient, string tokenURI)`.\n\n**Phase 2: Frontend**\n* **Upload**: User uploads an image -> Sent to Pinata IPFS -> Hash returned.\n* **Mint**: User clicks \"Mint\", Metamask pops up, contract is called with the IPFS Hash.\n\n**Verification**:\n* Mint an NFT. View it on OpenSea Testnet (Sepolia).\n* **Visual Check**: Describe the Mint Card (e.g., \"Card centered on screen, image preview area, 'Mint' button disabled until upload complete\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "26",
@@ -347,7 +373,9 @@
             "Terraform",
             "AWS"
         ],
-        "prompt": "**System Role**: You are a Cloud Engineer.\n**Objective**: Provision a secure EC2 web server using Terraform.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **State**: Explain why we need `terraform.tfstate`.\n2.  **Security**: The EC2 instance must ONLY accept HTTP (80) from everywhere and SSH (22) from YOUR IP.\n\n**Phase 1: Networking**\n* Create a VPC, Subnet, and Internet Gateway.\n* Create a Security Group.\n\n**Phase 2: Compute**\n* Define `aws_instance`.\n* Use `user_data` to install Apache and echo \"Hello World\" to index.html upon boot.\n\n**Verification**:\n* Run `terraform apply`. Visit the output IP address. See the website."
+        "prompt": "**System Role**: You are a Cloud Engineer.\n**Objective**: Provision a secure EC2 web server using Terraform.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **State**: Explain why we need `terraform.tfstate`.\n2.  **Security**: The EC2 instance must ONLY accept HTTP (80) from everywhere and SSH (22) from YOUR IP.\n\n**Phase 1: Networking**\n* Create a VPC, Subnet, and Internet Gateway.\n* Create a Security Group.\n\n**Phase 2: Compute**\n* Define `aws_instance`.\n* Use `user_data` to install Apache and echo \"Hello World\" to index.html upon boot.\n\n**Verification**:\n* Run `terraform apply`. Visit the output IP address. See the website.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
     },
     {
         "id": "27",
@@ -360,6 +388,494 @@
             "React",
             "Node.js"
         ],
-        "prompt": "**System Role**: You are an IoT Solutions Architect.\n**Objective**: Build a Dashboard to control lights and view temperature.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Protocol**: Use MQTT over WebSockets. Do not use HTTP polling.\n\n**Phase 1: Broker & Simulator**\n* Setup a public HiveMQ broker or local Mosquitto.\n* Write a script `sensor_sim.py` that publishes random temp data to `home/livingroom/temp` every 5s.\n\n**Phase 2: Dashboard**\n* Connect React to the MQTT broker.\n* **Live Graph**: Update temperature in real-time.\n* **Switch**: A button that publishes `ON` or `OFF` to `home/livingroom/light`.\n\n**Verification**:\n* Run the simulator. See the graph update instantly on the web page."
+        "prompt": "**System Role**: You are an IoT Solutions Architect.\n**Objective**: Build a Dashboard to control lights and view temperature.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Protocol**: Use MQTT over WebSockets. Do not use HTTP polling.\n\n**Phase 1: Broker & Simulator**\n* Setup a public HiveMQ broker or local Mosquitto.\n* Write a script `sensor_sim.py` that publishes random temp data to `home/livingroom/temp` every 5s.\n\n**Phase 2: Dashboard**\n* Connect React to the MQTT broker.\n* **Live Graph**: Update temperature in real-time.\n* **Switch**: A button that publishes `ON` or `OFF` to `home/livingroom/light`.\n\n**Verification**:\n* Run the simulator. See the graph update instantly on the web page.\n* **Visual Check**: Describe the Dashboard Control Panel (e.g., \"Grid layout. 'Living Room' card contains a Toggle Switch for lights and a Sparkline for temperature\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
+    },
+    {
+        "id": "28",
+        "title": "LLM Fine-Tuning Pipeline (God Mode)",
+        "description": "End-to-end LLM engineering. Focuses on QLoRA, PEFT, and dataset preparation.",
+        "tags": [
+            "GenAI",
+            "Level 5",
+            "Python",
+            "PyTorch",
+            "HuggingFace"
+        ],
+        "prompt": "**System Role**: You are a Principal AI Engineer.\n**Objective**: Build a robust pipeline to Fine-Tune Llama-3-8b on a custom dataset using QLoRA.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **VRAM Optimization**: You must use `bitsandbytes` for 4-bit quantization. Explain memory constraints in your thinking.\n2.  **Tracking**: Integrate `wandb` (Weights & Biases) for loss visualization.\n\n**Phase 1: Dataset Prep**\n* Load a JSONL dataset.\n* Format prompts into the instruction format: `### Instruction: ... ### Response: ...`.\n* Tokenize using the Llama tokenizer with padding/truncation.\n\n**Phase 2: Training Loop**\n* Load Model in 4-bit.\n* Apply LoRA adapters (Rank 64, Alpha 16).\n* Use `SFTTrainer` from `trl` library.\n* **Hyperparameters**: Learning rate 2e-4, Cosine scheduler.\n\n**Verification**:\n* Run inference on a held-out test prompt. Compare base model vs fine-tuned model outputs.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.361Z"
+    },
+    {
+        "id": "29",
+        "title": "Stable Diffusion ControlNet Interface",
+        "description": "Generative Art Application. Focuses on conditioning image generation with Canny edges.",
+        "tags": [
+            "GenAI",
+            "Level 4",
+            "Python",
+            "Diffusers",
+            "Gradio"
+        ],
+        "prompt": "**System Role**: You are a Creative Technologist.\n**Objective**: Build a Web UI for Stable Diffusion with ControlNet support.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Pipeline**: Use `StableDiffusionControlNetPipeline`.\n2.  **Preprocessing**: Implement a Canny edge detector using OpenCV.\n\n**Phase 1: Backend**\n* Python script using `diffusers` and `accelerate`.\n* Load SDXL and ControlNet-Canny.\n* Function: `generate(prompt, input_image) -> output_image`.\n\n**Phase 2: Frontend (Gradio)**\n* Create a Gradio block.\n* Input: Image Upload + Text Prompt.\n* Output: Generated Image.\n\n**Verification**:\n* Upload a sketch of a cat. Prompt \"Realistic cat\". The output must match the sketch outlines.\n* **Visual Check**: Describe the Gradio Interface (e.g., \"Two column layout. Left: Image Input + Prompt Textbox. Right: Result Image. 'Run' button spans full width at bottom\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "30",
+        "title": "AI Agent with Tool Use (ReAct Pattern)",
+        "description": "Agentic AI System. Implements the Reason+Act loop from scratch without frameworks.",
+        "tags": [
+            "GenAI",
+            "Level 5",
+            "Python",
+            "OpenAI",
+            "System Design"
+        ],
+        "prompt": "**System Role**: You are an AGI Researcher.\n**Objective**: Build a ReAct (Reason + Act) Agent from scratch.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **No Frameworks**: Do NOT use LangChain. Implement the loop manually to understand the internals.\n2.  **Tools**: Define two tools: `search_wikipedia(query)` and `calculate(expression)`.\n\n**Phase 1: The Loop**\n* Prompt Engineering: Create a system prompt that enforces `Thought: ... Action: ... Observation: ...` format.\n* **Parser**: Regex to extract the Action and Input.\n* **Execution**: Call the Python function corresponding to the tool.\n* **History**: Append the Observation back to the context and loop.\n\n**Verification**:\n* Ask: \"What is the population of France times 5?\". Agent should Search -> Calculate -> Answer.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "31",
+        "title": "DAO Governance Dashboard",
+        "description": "Web3 Application. Focuses on voting mechanisms and on-chain data visualization.",
+        "tags": [
+            "Web3",
+            "Level 4",
+            "Next.js",
+            "Ethers.js",
+            "The Graph"
+        ],
+        "prompt": "**System Role**: You are a DAO Architect.\n**Objective**: Build a Governance Dashboard for a DAO.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Indexing**: Use The Graph protocol to fetch proposal data. Do not query the blockchain directly for lists.\n\n**Phase 1: Subgraph**\n* Define schema: `Proposal`, `Vote`.\n* Write mappings for `ProposalCreated` and `VoteCast` events.\n\n**Phase 2: Frontend**\n* Connect Wallet (RainbowKit).\n* Display Proposals with a progress bar (For vs Against).\n* **Interaction**: \"Vote\" button calls the smart contract.\n\n**Verification**:\n* Cast a vote on a testnet DAO. Ensure the progress bar updates after the block confirms.\n* **Visual Check**: Describe the Proposal Card (e.g., \"Title at top, status badge (Active/Closed) top-right. Two-color progress bar showing Yes/No votes\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "32",
+        "title": "Flash Loan Arbitrage Bot",
+        "description": "DeFi Engineering. Focuses on atomic transactions and gas optimization.",
+        "tags": [
+            "Web3",
+            "Level 5",
+            "Solidity",
+            "Aave",
+            "MEV"
+        ],
+        "prompt": "**System Role**: You are a MEV Searcher.\n**Objective**: Build a Flash Loan contract to perform arbitrage between Uniswap and Sushiswap.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Atomicity**: The transaction must revert if profit <= 0.\n2.  **Security**: Only the owner can call the execution function.\n\n**Phase 1: Contract**\n* Inherit from `FlashLoanReceiverBase` (Aave).\n* **Logic**: \n    1. Borrow 1000 USDC.\n    2. Buy ETH on Uniswap.\n    3. Sell ETH on Sushiswap.\n    4. Repay 1000 USDC + Premium.\n    5. Keep difference.\n\n**Verification**:\n* Fork Mainnet using Hardhat. Simulate a price discrepancy. Execute the tx.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "33",
+        "title": "Self-Healing Kubernetes Cluster",
+        "description": "Advanced DevOps. Focuses on Prometheus monitoring and automated remediation.",
+        "tags": [
+            "DevOps",
+            "Level 5",
+            "Python",
+            "Kubernetes",
+            "Prometheus"
+        ],
+        "prompt": "**System Role**: You are a Platform Engineer.\n**Objective**: Build a \"Self-Healing\" system that restarts pods when latency spikes.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Event Loop**: Poll Prometheus every 10s. Do not rely on K8s liveness probes alone.\n\n**Phase 1: Monitoring**\n* Deploy Prometheus.\n* Expose a custom metric `http_request_duration_seconds` in a sample app.\n\n**Phase 2: The Healer Bot**\n* Python script running in the cluster.\n* Query Prometheus: `rate(http_request_duration_seconds_sum[1m]) > 0.5`.\n* If true: Use `kubernetes-client` to delete the pod (forcing a restart).\n\n**Verification**:\n* Artificially delay responses in the app. Watch the Healer kill the pod.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "34",
+        "title": "CI/CD Pipeline Generator",
+        "description": "DevOps Tooling. Focuses on GitHub Actions and Docker registry integration.",
+        "tags": [
+            "DevOps",
+            "Level 3",
+            "YAML",
+            "GitHub Actions",
+            "Docker"
+        ],
+        "prompt": "**System Role**: You are a DevOps Consultant.\n**Objective**: Create a robust GitHub Actions pipeline for a Node.js app.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Caching**: You MUST cache `node_modules` to speed up builds.\n2.  **Security**: Scan the Docker image for vulnerabilities using Trivy.\n\n**Phase 1: Build & Test**\n* Trigger: Push to `main`.\n* Steps: Checkout -> Setup Node -> Install -> Lint -> Test.\n\n**Phase 2: Publish**\n* Login to DockerHub (secrets).\n* Build & Push image tagged with Commit SHA.\n\n**Verification**:\n* Push a commit. Verify the image appears in DockerHub with the correct tag.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "35",
+        "title": "Distributed Key-Value Store",
+        "description": "System Design. Recreating a simplified version of DynamoDB/Cassandra.",
+        "tags": [
+            "Backend",
+            "Level 5",
+            "Go",
+            "Distributed Systems",
+            "Consistent Hashing"
+        ],
+        "prompt": "**System Role**: You are a Database Internals Engineer.\n**Objective**: Build a Distributed KV Store with replication.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Partitioning**: Implement Consistent Hashing to distribute keys across N nodes.\n2.  **CAP Theorem**: Prioritize Availability (AP system). Implement \"Sloppy Quorum\".\n\n**Phase 1: The Node**\n* HTTP Server: `GET /key`, `PUT /key`.\n* Storage: In-memory Map (with Write-Ahead Log for durability).\n\n**Phase 2: The Cluster**\n* **Gossip Protocol**: Nodes periodically ping each other to detect failures.\n* **Replication**: When writing a key, forward it to the next 2 nodes in the ring.\n\n**Verification**:\n* Start 3 nodes. Kill Node B. Write to Node A. Start Node B. Read from Node B (should eventually sync).",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "36",
+        "title": "Event Sourcing Engine",
+        "description": "Backend Architecture. Focuses on CQRS and immutable event logs.",
+        "tags": [
+            "Backend",
+            "Level 5",
+            "Node.js",
+            "Kafka",
+            "CQRS"
+        ],
+        "prompt": "**System Role**: You are a Software Architect.\n**Objective**: Build a Banking Ledger using Event Sourcing.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Immutability**: Never update a balance directly. Only append events (`MoneyDeposited`, `MoneyWithdrawn`).\n2.  **Replay**: The current state must be derivable by replaying all events.\n\n**Phase 1: Write Side (Command)**\n* Accept `DepositCommand`.\n* Validate.\n* Append event to Kafka topic `account-events`.\n\n**Phase 2: Read Side (Query)**\n* Consumer listens to Kafka.\n* Updates a Redis cache with the current balance.\n\n**Verification**:\n* Wipe Redis. Replay the Kafka topic. Redis should contain the correct balance.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "37",
+        "title": "gRPC Microservices Mesh",
+        "description": "Backend Communication. Focuses on Protobufs and inter-service communication.",
+        "tags": [
+            "Backend",
+            "Level 4",
+            "Go",
+            "gRPC",
+            "Protobuf"
+        ],
+        "prompt": "**System Role**: You are a Microservices Engineer.\n**Objective**: Build a Product-Order microservice system using gRPC.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Contract**: Define `service.proto` first. Strictly typed.\n\n**Phase 1: Product Service**\n* RPC `GetProduct(id)`. Returns Name, Price.\n\n**Phase 2: Order Service**\n* RPC `CreateOrder(productId)`.\n* **Logic**: Calls Product Service to check availability.\n\n**Verification**:\n* Use `grpcurl` to call CreateOrder. Verify it internally calls GetProduct.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "38",
+        "title": "Flutter E-commerce App",
+        "description": "Mobile App. Focuses on Clean Architecture and BLoC pattern.",
+        "tags": [
+            "Flutter",
+            "Level 4",
+            "Dart",
+            "BLoC",
+            "Clean Architecture"
+        ],
+        "prompt": "**System Role**: You are a Senior Flutter Developer.\n**Objective**: Build a scalable E-commerce app.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Separation**: Use Clean Architecture (Domain, Data, Presentation layers).\n2.  **State**: Use `flutter_bloc`.\n\n**Phase 1: Domain Layer**\n* Define `Product` entity.\n* Define `ProductRepository` abstract class.\n\n**Phase 2: Presentation**\n* **ProductListBloc**: Events (`LoadProducts`), States (`Loading`, `Loaded`, `Error`).\n* **UI**: GridView with Hero animations for product images.\n\n**Verification**:\n* Trigger an error in the repository. Ensure the UI shows a Snackbar, not a crash.\n* **Visual Check**: Generate a screenshot description of the Product Grid (e.g., \"2-column grid. Each card has image, bold title, price in green. Floating 'Add to Cart' button bottom right of screen\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "39",
+        "title": "Social Media Feed (Infinite Scroll)",
+        "description": "Mobile UI/UX. Focuses on performance and pagination.",
+        "tags": [
+            "Flutter",
+            "Level 3",
+            "Dart",
+            "Pagination",
+            "UI"
+        ],
+        "prompt": "**System Role**: You are a Mobile UI Engineer.\n**Objective**: Build an Instagram-style feed with infinite scrolling.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Performance**: Use `ListView.builder`. Do not render off-screen items.\n2.  **Pagination**: Fetch next page when user scrolls to 80%.\n\n**Phase 1: Data Source**\n* Mock API returning 20 items per page.\n\n**Phase 2: UI**\n* Render Post Card (Image + Caption + Like Button).\n* **ScrollController**: Listen to scroll position.\n* Show a loading spinner at the bottom when fetching more.\n\n**Verification**:\n* Scroll quickly. Ensure memory usage remains stable.\n* **Visual Check**: Describe the Post Card (e.g., \"Header with user avatar. Square image. Action bar with Heart, Comment, Share icons. Caption text constrained to 2 lines with 'more' link\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "40",
+        "title": "Transformer from Scratch",
+        "description": "Deep Learning Theory. Implementing the 'Attention is All You Need' paper.",
+        "tags": [
+            "Deep Learning",
+            "Level 5",
+            "PyTorch",
+            "Research"
+        ],
+        "prompt": "**System Role**: You are an AI Researcher.\n**Objective**: Implement a Transformer model from scratch in PyTorch.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **No Shortcuts**: Do not use `nn.Transformer`. Build `MultiHeadAttention` manually.\n2.  **Shapes**: Comment the tensor shape at every step (e.g., `# [Batch, Seq, Dim]`).\n\n**Phase 1: Components**\n* `SelfAttention`: Query, Key, Value projections. Scaled Dot-Product.\n* `FeedForward`: Linear -> ReLU -> Linear.\n* `EncoderBlock`: Attention + Add & Norm + FeedForward.\n\n**Phase 2: Assembly**\n* Stack N EncoderBlocks.\n* Add Positional Encodings.\n\n**Verification**:\n* Pass a random tensor through the model. Ensure output shape matches input shape.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "41",
+        "title": "Real-time Object Detection API",
+        "description": "Computer Vision. Focuses on YOLO and video stream processing.",
+        "tags": [
+            "Deep Learning",
+            "Level 4",
+            "Python",
+            "YOLO",
+            "OpenCV"
+        ],
+        "prompt": "**System Role**: You are a Computer Vision Engineer.\n**Objective**: Build a Real-time Object Detection system.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Model**: Use YOLOv8 (Ultralytics).\n2.  **FPS**: Optimize for speed. Resize frames before inference.\n\n**Phase 1: Inference**\n* Open Webcam stream using OpenCV.\n* Run YOLO inference on each frame.\n* Draw bounding boxes.\n\n**Phase 2: Optimization**\n* Skip frames (process every 3rd frame) to increase FPS.\n\n**Verification**:\n* Hold up a bottle. Ensure it detects \"Bottle\" with >80% confidence.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "42",
+        "title": "Recommendation System (Collaborative Filtering)",
+        "description": "Data Science. Focuses on Matrix Factorization.",
+        "tags": [
+            "Data Science",
+            "Level 4",
+            "Python",
+            "Pandas",
+            "Scikit-learn"
+        ],
+        "prompt": "**System Role**: You are a Data Scientist.\n**Objective**: Build a Movie Recommendation System.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Algorithm**: Use SVD (Singular Value Decomposition) or User-User Collaborative Filtering.\n\n**Phase 1: Data Prep**\n* Create a User-Item interaction matrix from the MovieLens dataset.\n\n**Phase 2: Model**\n* Compute Cosine Similarity between users.\n* Predict rating for unseen movies.\n\n**Verification**:\n* For a user who likes \"Star Wars\", ensure the top recommendation is Sci-Fi.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "43",
+        "title": "Collaborative Code Editor",
+        "description": "Complex Web App. Focuses on Operational Transformation (OT) or CRDTs.",
+        "tags": [
+            "Complex Apps",
+            "Level 5",
+            "React",
+            "Monaco Editor",
+            "Yjs"
+        ],
+        "prompt": "**System Role**: You are a Frontend Architect.\n**Objective**: Build a Google Docs-style Code Editor.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Sync**: Use `Yjs` + `y-websocket` for conflict resolution.\n2.  **Editor**: Integrate `Monaco Editor` (VS Code core).\n\n**Phase 1: Setup**\n* React app with Monaco Editor component.\n* Connect to Yjs Websocket provider.\n\n**Phase 2: Binding**\n* Bind the Yjs Text type to the Monaco model.\n* Show remote cursors with user names.\n\n**Verification**:\n* Type in Tab A. See text appear character-by-character in Tab B.\n* **Visual Check**: Generate a screenshot description of the Editor Workspace (e.g., \"Full screen editor, sidebar with file tree. Top bar showing connected users' avatars\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "44",
+        "title": "Video Streaming Server (HLS)",
+        "description": "Backend/Media. Focuses on FFmpeg and adaptive bitrate streaming.",
+        "tags": [
+            "Backend",
+            "Level 4",
+            "Node.js",
+            "FFmpeg",
+            "HLS"
+        ],
+        "prompt": "**System Role**: You are a Media Engineer.\n**Objective**: Build a Video on Demand (VOD) streaming server.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Transcoding**: Use FFmpeg to convert MP4 to HLS (.m3u8 + .ts segments).\n2.  **Resolutions**: Generate 360p, 720p, 1080p variants.\n\n**Phase 1: Ingest**\n* Upload endpoint accepts MP4.\n* Spawns FFmpeg process to chunk the video.\n\n**Phase 2: Playback**\n* Serve static HLS files.\n* Frontend: Use `video.js` to play the stream.\n\n**Verification**:\n* Network throttle to 3G. Player should auto-switch to 360p.\n* **Visual Check**: Describe the Video Player UI (e.g., \"Standard controls (Play, Volume, Timeline) with a 'Settings' gear icon to manually select quality\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "45",
+        "title": "Zoom Clone (WebRTC)",
+        "description": "Real-time Communication. Focuses on Peer-to-Peer video.",
+        "tags": [
+            "Complex Apps",
+            "Level 5",
+            "WebRTC",
+            "Socket.io",
+            "React"
+        ],
+        "prompt": "**System Role**: You are a VoIP Engineer.\n**Objective**: Build a Video Chat app using WebRTC.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Signaling**: Use Socket.io to exchange SDP offers/answers and ICE candidates.\n2.  **Mesh Topology**: Connect every peer to every other peer (Mesh).\n\n**Phase 1: Signaling Server**\n* Relay messages between Client A and Client B.\n\n**Phase 2: Client**\n* `navigator.mediaDevices.getUserMedia()`.\n* Create `RTCPeerConnection`.\n* Handle `ontrack` to display remote video.\n\n**Verification**:\n* Connect 2 devices on different networks (requires STUN/TURN server, use public STUN for dev).\n* **Visual Check**: Describe the Video Grid (e.g., \"Responsive grid. Active speaker highlighted with green border. Self-view in small picture-in-picture box bottom-right\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "46",
+        "title": "Stock Trading Engine",
+        "description": "FinTech. Focuses on Order Matching logic.",
+        "tags": [
+            "Backend",
+            "Level 5",
+            "C++ / Rust",
+            "High Performance"
+        ],
+        "prompt": "**System Role**: You are a High-Frequency Trading Engineer.\n**Objective**: Build an Order Matching Engine.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Data Structure**: Use two Binary Heaps (Min-Heap for Asks, Max-Heap for Bids).\n2.  **Speed**: Logic must be O(1) or O(log N).\n\n**Phase 1: The Order Book**\n* `add_order(type, price, quantity)`.\n* **Match Logic**: While (BestBid >= BestAsk): Execute trade.\n\n**Verification**:\n* Add Buy 100 @ $10. Add Sell 50 @ $9. Result: Trade 50 @ $10 (or $9 depending on rule), 50 Buy remaining.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "47",
+        "title": "Search Engine Indexer",
+        "description": "System Design. Focuses on Inverted Indices and Web Crawling.",
+        "tags": [
+            "Backend",
+            "Level 4",
+            "Python",
+            "Elasticsearch",
+            "Scrapy"
+        ],
+        "prompt": "**System Role**: You are a Search Engineer.\n**Objective**: Build a mini Search Engine.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Data Structure**: Build an Inverted Index (Word -> List of DocIDs) manually or use Elasticsearch.\n\n**Phase 1: Crawler**\n* Use `Scrapy` to crawl a documentation site.\n* Extract Title and Body.\n\n**Phase 2: Indexer**\n* Tokenize, Stem, Remove Stopwords.\n* Store in Index.\n\n**Phase 3: Query**\n* TF-IDF ranking.\n* Return top 5 documents.\n\n**Verification**:\n* Search for a unique term. Ensure the correct page is Rank 1.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "48",
+        "title": "GraphQL API Gateway",
+        "description": "Backend. Focuses on Schema Stitching and Resolvers.",
+        "tags": [
+            "Backend",
+            "Level 3",
+            "Node.js",
+            "Apollo Server",
+            "GraphQL"
+        ],
+        "prompt": "**System Role**: You are a Backend Developer.\n**Objective**: Build a Unified GraphQL API over REST endpoints.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **N+1 Problem**: Use `DataLoader` to batch requests.\n\n**Phase 1: Schema**\n* Types: `User`, `Post`.\n\n**Phase 2: Resolvers**\n* `User.posts`: Fetch from `/api/posts?userId=X`.\n* Implement DataLoader to fetch all posts for a list of users in one query.\n\n**Verification**:\n* Query 10 users and their posts. Check network tab. Should be 2 REST calls, not 11.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "49",
+        "title": "Custom Programming Language",
+        "description": "Compilers. Focuses on Lexing, Parsing, and Evaluation.",
+        "tags": [
+            "System Design",
+            "Level 5",
+            "Rust/Python",
+            "Compilers"
+        ],
+        "prompt": "**System Role**: You are a Language Designer.\n**Objective**: Build an interpreter for a toy language \"ToyLang\".\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Pipeline**: Source -> Lexer -> Parser (AST) -> Evaluator.\n\n**Phase 1: Lexer**\n* Tokenize: `let x = 10;` -> `[LET, IDENT(x), ASSIGN, INT(10), SEMICOLON]`.\n\n**Phase 2: Parser**\n* Recursive Descent Parser.\n* Output Abstract Syntax Tree (AST).\n\n**Phase 3: Evaluator**\n* Walk the AST and execute.\n* Support variables and arithmetic.\n\n**Verification**:\n* Run `let a = 5; let b = 10; print(a + b);`. Output should be 15.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "50",
+        "title": "3D Game Engine (WebGL)",
+        "description": "Graphics Programming. Focuses on Shaders and Matrix Math.",
+        "tags": [
+            "Web",
+            "Level 5",
+            "WebGL",
+            "JavaScript",
+            "Linear Algebra"
+        ],
+        "prompt": "**System Role**: You are a Graphics Programmer.\n**Objective**: Build a basic 3D renderer from scratch (No Three.js).\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Shaders**: Write raw Vertex and Fragment shaders in GLSL.\n2.  **Math**: Implement Model-View-Projection matrices manually.\n\n**Phase 1: Setup**\n* Get WebGL context.\n* Compile Shaders.\n\n**Phase 2: Rendering**\n* Define a Cube (vertices, indices).\n* Loop: Clear screen -> Update Rotation Matrix -> Draw Elements.\n\n**Verification**:\n* You should see a spinning colored cube.\n* **Visual Check**: Describe the scene (e.g., \"Black background. Cube in center with red, green, blue faces. Smooth rotation around Y-axis\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "51",
+        "title": "Password Manager (CLI)",
+        "description": "Security. Focuses on Encryption and Key Derivation.",
+        "tags": [
+            "Security",
+            "Level 3",
+            "Python",
+            "Cryptography",
+            "CLI"
+        ],
+        "prompt": "**System Role**: You are a Security Engineer.\n**Objective**: Build a secure Password Manager CLI.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Encryption**: Use AES-GCM (Authenticated Encryption).\n2.  **Key Derivation**: Use Argon2 to derive the key from the Master Password. NEVER store the master password.\n\n**Phase 1: Storage**\n* JSON file storing `{ site: \"google\", iv: \"...\", ciphertext: \"...\", tag: \"...\" }`.\n\n**Phase 2: Logic**\n* `add(site, password)`: Encrypt and save.\n* `get(site)`: Ask for master password, derive key, decrypt.\n\n**Verification**:\n* Check the JSON file. It should look like garbage data.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "52",
+        "title": "Discord Bot (Music)",
+        "description": "Bot Development. Focuses on Voice API and Queues.",
+        "tags": [
+            "Backend",
+            "Level 3",
+            "Node.js",
+            "Discord.js",
+            "Voice"
+        ],
+        "prompt": "**System Role**: You are a Bot Developer.\n**Objective**: Build a Music Bot for Discord.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Voice**: Use `@discordjs/voice`.\n2.  **Queue**: Implement a Linked List or Array for the song queue.\n\n**Phase 1: Commands**\n* `!play <url>`: Join channel, download audio (ytdl-core), play.\n* `!skip`: Stop current, play next.\n\n**Verification**:\n* Join a voice channel. Command the bot. Hear audio.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "53",
+        "title": "Chrome Extension (Ad Blocker)",
+        "description": "Browser Extension. Focuses on Manifest V3 and Declarative Net Request.",
+        "tags": [
+            "Web",
+            "Level 3",
+            "JavaScript",
+            "Chrome API"
+        ],
+        "prompt": "**System Role**: You are a Browser Engineer.\n**Objective**: Build a simple Ad Blocker.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Manifest V3**: Use `declarativeNetRequest`, not the blocking webRequest API (deprecated).\n\n**Phase 1: Rules**\n* Define a JSON rule to block requests to `*://*.doubleclick.net/*`.\n\n**Phase 2: Popup**\n* Simple UI to toggle the blocker On/Off.\n\n**Verification**:\n* Load the unpacked extension. Visit a site with ads. Verify network requests are blocked.\n* **Visual Check**: Describe the Popup UI (e.g., \"Small window (300px width). Large toggle switch in center. Status text 'Blocking Active' in green below\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "54",
+        "title": "Redis Clone",
+        "description": "System Design. Focuses on TCP Servers and Serialization.",
+        "tags": [
+            "Backend",
+            "Level 4",
+            "Go/Python",
+            "TCP",
+            "Protocol"
+        ],
+        "prompt": "**System Role**: You are a Systems Programmer.\n**Objective**: Build a Redis-compatible server.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Protocol**: Implement RESP (Redis Serialization Protocol).\n2.  **Concurrency**: Handle multiple clients using Goroutines or AsyncIO.\n\n**Phase 1: Server**\n* Listen on TCP port 6379.\n* Parse RESP: `*2\\r\\n$3\\r\\nGET\\r\\n$3\\r\\nkey\\r\\n`.\n\n**Phase 2: Commands**\n* Implement `SET`, `GET`, `DEL`.\n* Store data in a global Hash Map (Thread-safe).\n\n**Verification**:\n* Connect using the official `redis-cli`. Run `SET foo bar`. Run `GET foo`.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "55",
+        "title": "Web Scraper API",
+        "description": "Data Engineering. Focuses on Headless Browsers and Anti-Bot evasion.",
+        "tags": [
+            "Backend",
+            "Level 3",
+            "Puppeteer",
+            "Express"
+        ],
+        "prompt": "**System Role**: You are a Data Engineer.\n**Objective**: Build an API that scrapes dynamic websites.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Headless**: Use Puppeteer or Playwright.\n2.  **Stealth**: Rotate User-Agents.\n\n**Phase 1: The Scraper**\n* Function `scrape(url)`: Launch browser, wait for selector, extract text.\n\n**Phase 2: API**\n* `POST /scrape { url: \"...\" }`.\n* Return JSON data.\n\n**Verification**:\n* Scrape a Single Page Application (SPA) that loads data via JS.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "56",
+        "title": "Markdown Blog (SSG)",
+        "description": "Web Development. Focuses on Static Site Generation logic.",
+        "tags": [
+            "Web",
+            "Level 3",
+            "Node.js",
+            "SSG"
+        ],
+        "prompt": "**System Role**: You are a Web Developer.\n**Objective**: Build a Static Site Generator from scratch.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **No Frameworks**: Do not use Next.js/Gatsby. Write the build script manually.\n\n**Phase 1: Content**\n* Folder `content/` with `.md` files (Frontmatter + Body).\n\n**Phase 2: Build Script**\n* Read files.\n* Parse Frontmatter (`gray-matter`).\n* Render Markdown to HTML (`marked`).\n* Inject into a Handlebars template.\n* Write to `dist/`.\n\n**Verification**:\n* Run `node build.js`. Open `dist/index.html`.\n* **Visual Check**: Describe the rendered Blog Post layout (e.g., \"Centered container max-width 800px. Large H1 title. Meta info (Date, Author) in italic gray below title. Typography optimized for reading\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "57",
+        "title": "Neural Network Library",
+        "description": "Deep Learning. Building 'Micrograd' - a tiny Autograd engine.",
+        "tags": [
+            "AI",
+            "Level 5",
+            "Python",
+            "Math"
+        ],
+        "prompt": "**System Role**: You are a Research Scientist.\n**Objective**: Build a tiny Autograd engine (like PyTorch) from scratch.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Backprop**: Implement the chain rule manually for Add, Mul, Pow, ReLU.\n\n**Phase 1: Value Object**\n* Class `Value` stores data and gradient.\n* Implement `__add__`, `__mul__`.\n* Implement `backward()` to propagate gradients.\n\n**Phase 2: Neuron**\n* Implement `Neuron`, `Layer`, `MLP` classes.\n\n**Verification**:\n* Train a small MLP to solve XOR. Loss should go to 0.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "58",
+        "title": "File Sharing App (P2P)",
+        "description": "WebRTC. Focuses on Data Channels.",
+        "tags": [
+            "Web",
+            "Level 4",
+            "WebRTC",
+            "React"
+        ],
+        "prompt": "**System Role**: You are a Network Engineer.\n**Objective**: Build a Peer-to-Peer file transfer app.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Privacy**: Data must go directly Peer-to-Peer, never stored on server.\n2.  **Data Channel**: Use WebRTC DataChannel for binary transfer.\n\n**Phase 1: Signaling**\n* Exchange IDs.\n\n**Phase 2: Transfer**\n* Chunk file.\n* Send chunks over DataChannel.\n* Reassemble on receiver side.\n\n**Verification**:\n* Send a 100MB video file between two tabs.\n* **Visual Check**: Describe the Progress UI (e.g., \"Circular progress indicator with percentage. 'Sending...' status text. Cancel button below\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "59",
+        "title": "Load Balancer",
+        "description": "System Design. Focuses on Round Robin and Reverse Proxying.",
+        "tags": [
+            "Backend",
+            "Level 4",
+            "Go/Node.js",
+            "Networking"
+        ],
+        "prompt": "**System Role**: You are a Site Reliability Engineer.\n**Objective**: Build a Layer 7 Load Balancer.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **Algorithm**: Implement Round Robin.\n2.  **Health Check**: Periodically ping backends. Remove dead ones.\n\n**Phase 1: Proxy**\n* Listen on port 80.\n* List of backends: `['localhost:8081', 'localhost:8082']`.\n* Forward request to current backend.\n\n**Phase 2: Rotation**\n* Increment counter % N.\n\n**Verification**:\n* Spin up 2 servers returning \"A\" and \"B\". Hit LB. Should see A, B, A, B.",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
+    },
+    {
+        "id": "60",
+        "title": "Snake Game (Reinforcement Learning)",
+        "description": "AI/RL. Focuses on Q-Learning.",
+        "tags": [
+            "AI",
+            "Level 5",
+            "Python",
+            "PyGame",
+            "Reinforcement Learning"
+        ],
+        "prompt": "**System Role**: You are an AI Researcher.\n**Objective**: Train an AI to play Snake using Q-Learning.\n\n**CRITICAL INSTRUCTIONS**:\n1.  **State**: Define state as [Danger Straight, Danger Right, Danger Left, Direction, Food Location].\n2.  **Reward**: +10 Food, -10 Death.\n\n**Phase 1: The Game**\n* Build Snake in PyGame (controlled by API).\n\n**Phase 2: The Agent**\n* Q-Table or Deep Q-Network (DQN).\n* Training Loop: Action -> Step -> Reward -> Update Q.\n\n**Verification**:\n* Watch the snake eventually learn to avoid walls and seek food.\n* **Visual Check**: Describe the Game Window (e.g., \"Grid based. Snake is green squares, Food is red circle. Score counter in top-left. Episode number in title bar\").",
+        "author": "Santhosh Sachin",
+        "createdAt": "2025-12-09T18:50:27.362Z"
     }
 ]
