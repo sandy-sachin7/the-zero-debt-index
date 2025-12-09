@@ -58,7 +58,7 @@ export default function TemplateDetail() {
   }
 
   return (
-    <Layout title={`${template.title} | Vibe Coding`}>
+    <Layout title={`${template.title} | The Zero-Debt Index`}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -130,7 +130,7 @@ export default function TemplateDetail() {
             <h3 className="text-lg font-medium text-gray-900 mb-2">How to use</h3>
             <p className="text-gray-600 leading-relaxed">
               Copy the prompt above and paste it into <strong>Google AI Studio</strong>, <strong>Gemini Advanced</strong>, or your local agentic environment.
-              These prompts are optimized for "Vibe Coding" — providing high-level intent while letting the AI handle the implementation details.
+              These prompts are optimized for "The Zero-Debt Index" — providing high-level intent while letting the AI handle the implementation details.
             </p>
           </div>
         </div>

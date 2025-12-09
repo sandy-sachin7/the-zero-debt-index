@@ -1,4 +1,4 @@
-# Contributing to Vibe Coding Template Library
+# Contributing to The Zero-Debt Index
 
 We welcome contributions! This project follows a **GitOps workflow**, meaning all templates are managed via this repository and automatically synced to the live application upon merge.
 
@@ -7,7 +7,7 @@ We welcome contributions! This project follows a **GitOps workflow**, meaning al
 1.  **Fork the Repository**: Click the "Fork" button at the top right of this page.
 2.  **Clone your Fork**:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/vibe-coding-template-lib.git
+    git clone https://github.com/YOUR_USERNAME/the-zero-debt-index.git
     ```
 3.  **Create a Branch**:
     ```bash
@@ -39,7 +39,7 @@ We welcome contributions! This project follows a **GitOps workflow**, meaning al
 
 ## Template Guidelines
 
-*   **Vibe Coding Philosophy**: Prompts should be high-level, intent-based, and let the AI handle the implementation details.
+*   **The Zero-Debt Index Philosophy**: Prompts should be high-level, intent-based, and let the AI handle the implementation details.
 *   **Structure**:
     *   **System Role**: Define the persona (e.g., "Senior React Engineer").
     *   **Objective**: Clear goal.

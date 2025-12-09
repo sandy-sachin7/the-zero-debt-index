@@ -1,6 +1,9 @@
-# Vibe Coding Starter Kit
+# The Zero-Debt Index
 
 A template library for AI-first application prompts. This project allows you to browse, copy, and share "Vibe Coding" prompts to quickly spin up full-stack applications using AI tools like Google AI Studio, Gemini, or Copilot.
+
+## Repository
+[https://github.com/sandy-sachin7/the-zero-debt-index](https://github.com/sandy-sachin7/the-zero-debt-index)
 
 ## Features
 

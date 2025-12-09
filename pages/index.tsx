@@ -27,7 +27,7 @@ export default function Home() {
   );
 
   return (
-    <Layout title="Vibe Coding | Library">
+    <Layout title="The Zero-Debt Index | Library">
       {/* Hero / Search Section */}
       <div className="flex flex-col items-center justify-center py-10 mb-8">
         <h1 className="text-4xl sm:text-5xl font-normal text-gray-800 mb-6 text-center tracking-tight">

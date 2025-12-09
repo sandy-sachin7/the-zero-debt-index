@@ -7,7 +7,7 @@ interface LayoutProps {
   title?: string;
 }
 
-const Layout = ({ children, title = 'Vibe Coding' }: LayoutProps) => {
+const Layout = ({ children, title = 'The Zero-Debt Index' }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col font-roboto">
       <Head>
@@ -25,7 +25,7 @@ const Layout = ({ children, title = 'Vibe Coding' }: LayoutProps) => {
                 <span className="material-icons-round text-2xl">auto_awesome</span>
              </div>
              <span className="text-xl font-medium text-gray-700 tracking-tight group-hover:text-blue-600 transition-colors">
-               Vibe Coding
+               The Zero-Debt Index
              </span>
           </Link>
         </div>
@@ -53,7 +53,7 @@ const Layout = ({ children, title = 'Vibe Coding' }: LayoutProps) => {
             for Antigravity & Gemini
           </p>
           <p className="text-xs text-gray-400 mt-2">
-            &copy; {new Date().getFullYear()} Vibe Coding Library
+            &copy; {new Date().getFullYear()} The Zero-Debt Index
           </p>
         </div>
       </footer>
