@@ -51,20 +51,25 @@ export default function AddTemplate() {
   };
 
   return (
-    <Layout title="Add Template | Vibe Coding Kit">
+    <Layout title="New Template | Vibe Coding">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Add New Template</h1>
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-normal text-gray-900 mb-2">Create a new template</h1>
+          <p className="text-gray-500">Share your best prompts with the community</p>
+        </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-200 space-y-6">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">
+            <div className="bg-red-50 text-red-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+              <span className="material-icons-round text-base">error</span>
               {error}
             </div>
           )}
 
-          <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
-              Title
+          {/* Title Input */}
+          <div className="group">
+            <label htmlFor="title" className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">
+              Template Title
             </label>
             <input
               type="text"
@@ -73,13 +78,14 @@ export default function AddTemplate() {
               required
               value={formData.title}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-gray-800 placeholder-gray-400"
               placeholder="e.g., React Dashboard"
             />
           </div>
 
+          {/* Description Input */}
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="description" className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">
               Short Description
             </label>
             <input
@@ -89,71 +95,89 @@ export default function AddTemplate() {
               required
               value={formData.description}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-gray-800 placeholder-gray-400"
               placeholder="Briefly describe what this app does"
             />
           </div>
 
-          <div>
-            <label htmlFor="tags" className="block text-sm font-medium text-gray-700 mb-1">
-              Tags (comma separated)
-            </label>
-            <input
-              type="text"
-              id="tags"
-              name="tags"
-              value={formData.tags}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-              placeholder="React, Dashboard, Crypto"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Tags Input */}
+            <div>
+              <label htmlFor="tags" className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">
+                Tags
+              </label>
+              <input
+                type="text"
+                id="tags"
+                name="tags"
+                value={formData.tags}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-gray-800 placeholder-gray-400"
+                placeholder="React, Dashboard, Crypto"
+              />
+            </div>
+
+            {/* Author Input */}
+            <div>
+              <label htmlFor="author" className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">
+                Author
+              </label>
+              <input
+                type="text"
+                id="author"
+                name="author"
+                value={formData.author}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-gray-800 placeholder-gray-400"
+                placeholder="Your Name"
+              />
+            </div>
           </div>
 
+          {/* Prompt Input */}
           <div>
-            <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-1">
-              Author (Optional)
-            </label>
-            <input
-              type="text"
-              id="author"
-              name="author"
-              value={formData.author}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-              placeholder="Your Name"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="prompt" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="prompt" className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">
               Prompt Content
             </label>
-            <textarea
-              id="prompt"
-              name="prompt"
-              required
-              rows={10}
-              value={formData.prompt}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors font-mono text-sm"
-              placeholder="Paste the full prompt here..."
-            />
+            <div className="relative">
+              <textarea
+                id="prompt"
+                name="prompt"
+                required
+                rows={12}
+                value={formData.prompt}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-gray-800 font-mono text-sm leading-relaxed placeholder-gray-400 resize-y"
+                placeholder="Paste the full prompt here..."
+              />
+              <div className="absolute bottom-3 right-3 text-gray-400 pointer-events-none">
+                <span className="material-icons-round text-lg">code</span>
+              </div>
+            </div>
           </div>
 
-          <div className="pt-4 flex justify-end gap-4">
+          {/* Actions */}
+          <div className="pt-6 flex justify-end gap-4 border-t border-gray-100">
             <button
               type="button"
               onClick={() => router.back()}
-              className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 font-medium hover:bg-gray-50 transition-colors"
+              className="px-6 py-2.5 rounded-full text-gray-600 font-medium hover:bg-gray-100 transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={submitting}
-              className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-8 py-2.5 bg-[#1a73e8] text-white rounded-full font-medium shadow-md hover:shadow-lg hover:bg-[#1557b0] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
-              {submitting ? 'Saving...' : 'Add Template'}
+              {submitting ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Saving...
+                </>
+              ) : (
+                'Save Template'
+              )}
             </button>
           </div>
         </form>

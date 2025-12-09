@@ -38,7 +38,7 @@ export default function TemplateDetail() {
     return (
       <Layout>
         <div className="flex justify-center py-20">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+          <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
         </div>
       </Layout>
     );
@@ -48,9 +48,9 @@ export default function TemplateDetail() {
     return (
       <Layout>
         <div className="text-center py-20">
-          <h2 className="text-2xl font-bold text-gray-900">Template not found</h2>
+          <h2 className="text-2xl font-medium text-gray-800">Template not found</h2>
           <button onClick={() => router.push('/')} className="mt-4 text-blue-600 hover:underline">
-            Go back home
+            Return to Library
           </button>
         </div>
       </Layout>
@@ -58,57 +58,81 @@ export default function TemplateDetail() {
   }
 
   return (
-    <Layout title={`${template.title} | Vibe Coding Kit`}>
-      <div className="max-w-3xl mx-auto">
+    <Layout title={`${template.title} | Vibe Coding`}>
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
         <div className="mb-8">
-          <button onClick={() => router.back()} className="text-sm text-gray-500 hover:text-gray-900 mb-4 flex items-center gap-1">
-            ← Back to templates
+          <button
+            onClick={() => router.back()}
+            className="mb-6 flex items-center text-gray-500 hover:text-gray-800 transition-colors text-sm font-medium"
+          >
+            <span className="material-icons-round text-lg mr-1">arrow_back</span>
+            Back
           </button>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{template.title}</h1>
-          <p className="text-lg text-gray-600 mb-4">{template.description}</p>
-          <div className="flex flex-wrap gap-2 mb-6">
+
+          <h1 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-4 tracking-tight">
+            {template.title}
+          </h1>
+
+          <p className="text-xl text-gray-500 font-light leading-relaxed mb-6">
+            {template.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 items-center">
             {template.tags.map((tag) => (
-              <span key={tag} className="px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700">
+              <span key={tag} className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100">
                 {tag}
               </span>
             ))}
-          </div>
-          <div className="flex items-center text-sm text-gray-500 gap-4">
-             <span>Author: {template.author || 'Anonymous'}</span>
-             <span>Added: {new Date(template.createdAt).toLocaleDateString()}</span>
+            <span className="text-gray-300 mx-2">|</span>
+            <span className="text-sm text-gray-400 flex items-center gap-1">
+              <span className="material-icons-round text-base">person</span>
+              {template.author || 'Anonymous'}
+            </span>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-          <div className="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-            <h2 className="font-semibold text-gray-700">Prompt</h2>
+        {/* Prompt Card */}
+        <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden relative">
+          <div className="absolute top-4 right-4 z-10">
             <button
               onClick={handleCopy}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all transform active:scale-95 font-medium ${
                 copied
-                  ? 'bg-green-100 text-green-700'
-                  : 'bg-black text-white hover:bg-gray-800'
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-[#1a73e8] text-white hover:bg-[#1557b0]'
               }`}
             >
-              {copied ? 'Copied!' : 'Copy Prompt'}
+              <span className="material-icons-round">
+                {copied ? 'check' : 'content_copy'}
+              </span>
+              {copied ? 'Copied' : 'Copy Prompt'}
             </button>
           </div>
-          <div className="p-6 bg-gray-50/50">
-            <pre className="whitespace-pre-wrap font-mono text-sm text-gray-800 bg-white p-4 rounded-lg border border-gray-200 overflow-x-auto">
+
+          <div className="bg-gray-50 px-8 py-4 border-b border-gray-100">
+            <h2 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Prompt Content</h2>
+          </div>
+
+          <div className="p-8 overflow-x-auto">
+            <pre className="font-mono text-sm text-gray-800 whitespace-pre-wrap leading-relaxed">
               {template.prompt}
             </pre>
           </div>
         </div>
 
-        <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-100">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">How to use this prompt</h3>
-          <ol className="list-decimal list-inside text-blue-800 space-y-2">
-            <li>Click the <strong>Copy Prompt</strong> button above.</li>
-            <li>Open <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">Google AI Studio</a> or your preferred AI coding assistant.</li>
-            <li>Paste the prompt into the chat.</li>
-            <li>Watch as the AI generates your application code!</li>
-            <li>Iterate by asking for refinements or additional features.</li>
-          </ol>
+        {/* Instructions */}
+        <div className="mt-12 bg-blue-50 rounded-2xl p-8 border border-blue-100 flex gap-6 items-start">
+          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm flex-shrink-0">
+             <span className="material-icons-round text-2xl">lightbulb</span>
+          </div>
+          <div>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">How to use</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Copy the prompt above and paste it into <strong>Google AI Studio</strong>, <strong>Gemini Advanced</strong>, or your local agentic environment.
+              These prompts are optimized for "Vibe Coding" — providing high-level intent while letting the AI handle the implementation details.
+            </p>
+          </div>
         </div>
       </div>
     </Layout>

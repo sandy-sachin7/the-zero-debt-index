@@ -1,169 +1,172 @@
 [
   {
     "id": "1",
-    "title": "Agentic Link Hub (Linktree Clone)",
-    "description": "Agent-ready prompt to scaffold a static portfolio site using file operations.",
+    "title": "Personal Link Hub",
+    "description": "A single-file, responsive portfolio to showcase your social links. Perfect for testing basic HTML/CSS generation.",
     "tags": [
       "Beginner",
-      "Agentic",
       "HTML/CSS",
-      "Static"
+      "Static",
+      "Single-File"
     ],
-    "prompt": "**System**: You are Antigravity, an autonomous coding agent.\n**Objective**: Create a \"Link Hub\" website in a new directory called `link-hub`.\n\n**Tools Available**:\n*   `run_command`: To create directories.\n*   `write_to_file`: To create HTML/CSS/JS files.\n\n**Agentic Plan**:\n1.  **Setup**: Use `run_command` to create the folder `link-hub`.\n2.  **Implementation**:\n    *   Use `write_to_file` to create `index.html`.\n    *   Include internal CSS (`<style>`) for a dark, neon-themed design.\n    *   Include internal JS (`<script>`) for a \"Share\" button that copies the URL.\n3.  **Verification**:\n    *   The file should be self-contained and ready to open in a browser.\n\n**Content Requirements**:\n*   Profile Image (placeholder).\n*   Links: GitHub, Twitter, LinkedIn.\n*   Responsive Flexbox layout.",
+    "prompt": "**System Role**: You are an expert Frontend Agent specialized in semantic HTML and modern CSS.\n**Objective**: Create a \"Link Hub\" (Linktree clone) in a single `index.html` file.\n\n**Tool Usage Constraints**:\n1.  Use `run_command` to create a directory named `link-hub`.\n2.  Use `write_to_file` to create the `index.html` file inside it.\n\n**Implementation Details**:\n*   **Structure**: Use semantic tags (`<header>`, `<main>`, `<footer>`).\n*   **Styling**:\n    *   Use an internal `<style>` block.\n    *   **Theme**: \"Cyberpunk Lite\" - Dark background (`#0f0f0f`), neon purple accents (`#b026ff`), and white text.\n    *   **Layout**: Flexbox column, centered, max-width 480px.\n    *   **Buttons**: Full width, rounded-xl, glassmorphism effect (`backdrop-filter: blur(10px)`, `background: rgba(255,255,255,0.1)`).\n*   **Interactions**:\n    *   Add a simple JS script for a \"Share\" button that copies the current URL to the clipboard using the Clipboard API.\n\n**Verification**:\n*   After writing the file, the user should be able to open it directly in a browser without a build step.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "2",
-    "title": "Agentic Markdown Editor",
-    "description": "Instructs the agent to initialize a React project and build a markdown editor.",
+    "title": "Local Markdown Editor",
+    "description": "A React-based markdown editor using Vite. Teaches the agent to scaffold projects and install dependencies.",
     "tags": [
       "Beginner",
-      "Agentic",
       "React",
-      "Vite"
+      "Vite",
+      "Tailwind"
     ],
-    "prompt": "**System**: You are an Intelligent Coding Agent.\n**Objective**: Build a Local Markdown Editor using React.\n\n**Workflow**:\n1.  **Scaffold**:\n    *   Run `npm create vite@latest markdown-editor -- --template react`.\n    *   Run `npm install react-markdown`.\n    *   Run `npm install -D tailwindcss postcss autoprefixer` and initialize Tailwind.\n2.  **Develop**:\n    *   Modify `src/App.jsx`: Implement a split-screen layout (Textarea vs Preview).\n    *   Use `write_to_file` to update `src/index.css` with Tailwind directives.\n3.  **Persistence**:\n    *   Add `useEffect` to save content to `localStorage`.\n4.  **Verify**:\n    *   Run `npm run build` to ensure no type/lint errors.\n\n**Constraints**:\n*   Use functional components.\n*   Ensure the preview renders markdown correctly.",
+    "prompt": "**System Role**: You are a React Developer Agent.\n**Objective**: Scaffold and build a Local Markdown Editor.\n\n**Workflow & Tooling**:\n\n**Phase 1: Scaffolding**\n1.  **Command**: Use `run_command` to execute:\n    ```bash\n    npm create vite@latest markdown-editor -- --template react\n    cd markdown-editor\n    npm install\n    npm install react-markdown\n    npm install -D tailwindcss postcss autoprefixer\n    npx tailwindcss init -p\n    ```\n2.  **Configuration**: Use `write_to_file` to configure `tailwind.config.js` to scan `./src/**/*.{js,jsx,ts,tsx}`.\n3.  **Styles**: Overwrite `src/index.css` with Tailwind directives.\n\n**Phase 2: Implementation**\n1.  **Component**: Modify `src/App.jsx`.\n    *   **Layout**: Split screen (50% Textarea, 50% Preview).\n    *   **State**: Use `useState` for the markdown text.\n    *   **Persistence**: Use `useEffect` to save/load text from `localStorage`.\n    *   **Rendering**: Use `<ReactMarkdown>` component for the preview side.\n\n**Phase 3: Verification**\n1.  **Build**: Run `npm run build` via `run_command`.\n2.  **Check**: Ensure exit code is 0.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "3",
-    "title": "Agentic Quote Generator",
-    "description": "Simple API fetcher app built via agent commands.",
+    "title": "Random Quote Generator",
+    "description": "A vanilla JS app that fetches data from an API. Focuses on error handling and DOM manipulation.",
     "tags": [
       "Beginner",
-      "Agentic",
       "API",
+      "JavaScript",
       "DOM"
     ],
-    "prompt": "**System**: You are a Web Development Agent.\n**Objective**: Create a \"Random Quote Generator\" in `quote-app/index.html`.\n\n**Instructions**:\n1.  **Create Directory**: `mkdir quote-app`.\n2.  **Write Code**: Create a single `index.html` file.\n    *   **Fetch Logic**: Use `fetch('https://api.quotable.io/random')`.\n    *   **UI**: Glassmorphism card centered on a gradient background.\n    *   **Interactions**: \"New Quote\" button and \"Tweet this\" button.\n3.  **Error Handling**:\n    *   Wrap the fetch in `try/catch`.\n    *   If API fails, log error and show a fallback quote.\n\n**Tool Usage**:\n*   Use `write_to_file` for the HTML content.\n*   Do not ask for user permission for standard file operations.",
+    "prompt": "**System Role**: You are a JavaScript Specialist Agent.\n**Objective**: Build a robust \"Random Quote Generator\" that handles API failures gracefully.\n\n**Tools**: `run_command` (for directory creation), `write_to_file`.\n\n**Requirements**:\n1.  **Setup**: Create folder `quote-generator`.\n2.  **Files**: Create `index.html`, `style.css`, and `app.js`.\n3.  **Logic (`app.js`)**:\n    *   **API**: Fetch from `https://api.quotable.io/random`.\n    *   **Robustness**: You MUST use a `try/catch` block.\n    *   **Fallback**: Define a local array of 5 backup quotes to use if the fetch fails (network error).\n    *   **UI Update**: Dynamically update the DOM elements for Quote and Author.\n4.  **Styling**:\n    *   Use CSS Variables for colors.\n    *   Implement a \"New Quote\" button with a loading spinner state while fetching.\n\n**Verification**:\n*   The code must run without a bundler (standard ES6 modules or plain script tags).",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "4",
-    "title": "Agentic Weather Dashboard",
-    "description": "React app with API integration, built step-by-step by the agent.",
+    "title": "Weather Dashboard",
+    "description": "A multi-component React app with API integration. Requires structured component planning.",
     "tags": [
       "Medium",
-      "Agentic",
       "React",
-      "Axios"
+      "Axios",
+      "Environment Variables"
     ],
-    "prompt": "**System**: You are Antigravity.\n**Objective**: Build a Weather Dashboard in React.\n\n**Agentic Workflow**:\n1.  **Initialization**:\n    *   Execute: `npx create-react-app weather-dashboard`.\n    *   Execute: `cd weather-dashboard && npm install axios`.\n2.  **Component Architecture**:\n    *   Create `src/components/WeatherCard.js`: Display temp, humidity, icon.\n    *   Create `src/components/Forecast.js`: Grid of 5 days.\n    *   Update `src/App.js`: Manage state (`city`, `weather`, `history`).\n3.  **Data Layer**:\n    *   Use OpenWeatherMap API.\n    *   Implement `fetchWeather(city)` function.\n4.  **Styling**:\n    *   Use CSS Modules or standard CSS.\n    *   Make it responsive.\n\n**Tools**:\n*   Use `run_command` for setup.\n*   Use `write_to_file` for creating components.",
+    "prompt": "**System Role**: You are a Frontend Architect Agent.\n**Objective**: Build a modular Weather Dashboard using React and Axios.\n\n**Agentic Workflow**:\n\n**1. Project Setup**\n*   Use `run_command` to scaffold a Vite React project: `weather-dash`.\n*   Install dependencies: `npm install axios lucide-react` (for icons).\n\n**2. Architecture & File Structure**\n*   You must create the following structure using `write_to_file`:\n    *   `src/api/weather.js`: Encapsulate all API calls here. Do not make calls directly in components.\n    *   `src/components/SearchBar.jsx`: Controlled input with validation.\n    *   `src/components/CurrentWeather.jsx`: Display temp, humidity, wind.\n    *   `src/components/ForecastGrid.jsx`: Map over 5-day data.\n    *   `src/App.jsx`: Main state container.\n\n**3. Robustness Requirements**\n*   **Error Handling**: If the API returns 404 (City not found), display a user-friendly error message in the UI, not just the console.\n*   **Loading States**: Show a skeleton loader or spinner while data is fetching.\n*   **Environment**: Access API key via `import.meta.env.VITE_WEATHER_API_KEY`. Create a `.env.example` file.\n\n**4. Verification**\n*   Run `npm run lint` to ensure code quality.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "5",
-    "title": "Agentic Kanban Board",
-    "description": "Trello clone using dnd-kit, scaffolded and implemented by the agent.",
+    "title": "Kanban Board",
+    "description": "Complex drag-and-drop interactions using dnd-kit. Focuses on logic and state immutability.",
     "tags": [
       "Medium",
-      "Agentic",
       "React",
-      "dnd-kit"
+      "dnd-kit",
+      "TypeScript"
     ],
-    "prompt": "**System**: You are a Frontend Agent.\n**Objective**: Build a Kanban Board (To Do, Doing, Done).\n\n**Plan**:\n1.  **Setup**:\n    *   `npm create vite@latest kanban-board -- --template react-ts`.\n    *   `npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities`.\n2.  **Implementation**:\n    *   **Data Model**: Define a TypeScript interface for `Task` and `Column`.\n    *   **Components**:\n        *   `KanbanColumn.tsx`: Droppable area.\n        *   `TaskCard.tsx`: Draggable item.\n    *   **Logic**: Implement `onDragEnd` to handle moving items between arrays.\n3.  **Persistence**:\n    *   Use `useEffect` to sync state with `localStorage`.\n\n**Agent Instructions**:\n*   Write the full code for `App.tsx` and components.\n*   Ensure the drag-and-drop logic is robust (handle empty columns).",
+    "prompt": "**System Role**: You are a UI/UX Engineer Agent.\n**Objective**: Build a Trello-style Kanban Board with drag-and-drop capabilities.\n\n**Tech Stack**: React, TypeScript, Tailwind CSS, @dnd-kit/core.\n\n**Step-by-Step Plan**:\n\n1.  **Scaffold**: Create `kanban-board` (Vite + TS).\n2.  **Dependencies**: `npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities clsx tailwind-merge`.\n3.  **Data Model (TypeScript)**:\n    *   Define interfaces in `src/types.ts`:\n        ```typescript\n        export type Id = string | number;\n        export type Task = { id: Id; columnId: Id; content: string; };\n        export type Column = { id: Id; title: string; };\n        ```\n4.  **Core Logic (`useKanban.ts`)**:\n    *   Implement a custom hook to manage state.\n    *   **Critical**: Handle `onDragOver` (moving between columns) and `onDragEnd` (dropping).\n    *   Use `arrayMove` from dnd-kit for reordering.\n5.  **UI Implementation**:\n    *   Create `KanbanBoard.tsx`, `ColumnContainer.tsx`, `TaskCard.tsx`.\n    *   Ensure the UI is fluid and responsive.\n\n**Verification**:\n*   Ensure no TypeScript \"any\" types are used.\n*   Verify that dragging a task to an empty column works (common edge case).",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "6",
-    "title": "Agentic Expense Tracker",
-    "description": "Finance app with Chart.js visualization.",
+    "title": "Expense Tracker",
+    "description": "Financial dashboard with data visualization. Focuses on Context API and Chart.js integration.",
     "tags": [
       "Medium",
-      "Agentic",
       "React",
-      "Chart.js"
+      "Chart.js",
+      "Context API"
     ],
-    "prompt": "**System**: You are a Full-Stack Agent.\n**Objective**: Build an Expense Tracker with Charts.\n\n**Workflow**:\n1.  **Scaffold**: Create a React app `expense-tracker`.\n2.  **Dependencies**: Install `chart.js` and `react-chartjs-2`.\n3.  **State Management**:\n    *   Create `src/context/GlobalState.js`.\n    *   Implement Reducer for `ADD_TRANSACTION` and `DELETE_TRANSACTION`.\n4.  **Visualization**:\n    *   Create `ExpenseChart.js`.\n    *   Render a Doughnut chart aggregating expenses by category.\n5.  **Verification**:\n    *   Run `npm run build` to verify the build passes.\n\n**Tools**:\n*   Use `run_command` to install packages.\n*   Use `write_to_file` to generate the Context and Components.",
+    "prompt": "**System Role**: You are a Full-Stack JavaScript Agent.\n**Objective**: Build a Personal Finance Visualizer.\n\n**Workflow**:\n\n1.  **Setup**: React + Vite + Tailwind.\n2.  **State Management (Context API)**:\n    *   Create `src/context/GlobalState.jsx`.\n    *   Use `useReducer` for actions: `ADD_TRANSACTION`, `DELETE_TRANSACTION`.\n    *   Persist state to `localStorage` within the provider.\n3.  **Visualization**:\n    *   Install `chart.js` and `react-chartjs-2`.\n    *   Create `src/components/ExpenseChart.jsx`.\n    *   **Logic**: Aggregate transactions by category (e.g., \"Food\", \"Rent\") before passing to the Doughnut chart.\n4.  **Components**:\n    *   `Balance.jsx`: Calculate total.\n    *   `IncomeExpenses.jsx`: Show income (green) vs expense (red).\n    *   `TransactionList.jsx`: Render history with delete button.\n\n**Tool Usage**:\n*   Use `write_to_file` to create each component in isolation.\n*   Ensure `App.jsx` wraps everything in `<GlobalProvider>`.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "7",
-    "title": "Agentic Real-time Chat",
-    "description": "Node.js + Socket.io app. Agent manages both backend and frontend creation.",
+    "title": "Real-time Chat App",
+    "description": "A full-stack Node.js + React application using Socket.io. Requires managing two concurrent processes.",
     "tags": [
       "Pro",
-      "Agentic",
       "Node.js",
-      "Socket.io"
+      "Socket.io",
+      "Full-Stack"
     ],
-    "prompt": "**System**: You are a DevOps/Full-Stack Agent.\n**Objective**: Build a Real-time Chat App (Backend + Frontend).\n\n**Plan**:\n1.  **Backend (`server/`)**:\n    *   `mkdir server && cd server && npm init -y`.\n    *   `npm install express socket.io cors nodemon`.\n    *   Write `index.js`: Setup Socket.io events (`join_room`, `send_message`).\n2.  **Frontend (`client/`)**:\n    *   `npm create vite@latest client -- --template react`.\n    *   `cd client && npm install socket.io-client`.\n    *   Write `Chat.jsx`: Connect to localhost:3001.\n3.  **Orchestration**:\n    *   Create a root `package.json` to run both (concurrently).\n\n**Agent Instructions**:\n*   You must create the folder structure explicitly.\n*   Ensure CORS is configured on the server to allow the client origin.",
+    "prompt": "**System Role**: You are a Full-Stack Systems Agent.\n**Objective**: Build a Real-time Chat Application (Client + Server).\n\n**Architecture**:\n*   **Root**: `chat-app/`\n    *   **Server**: `chat-app/server` (Node/Express/Socket.io)\n    *   **Client**: `chat-app/client` (React/Vite)\n\n**Detailed Execution Plan**:\n\n**Phase 1: Server Side**\n1.  Use `run_command` to setup `server`.\n2.  Create `server/index.js`:\n    *   Setup Express and http server.\n    *   Initialize Socket.io with CORS allowing `http://localhost:5173`.\n    *   **Events**: Handle `join_room`, `send_message`, `disconnect`.\n    *   **Memory Store**: Keep track of active users in a simple object.\n\n**Phase 2: Client Side**\n1.  Use `run_command` to setup `client`.\n2.  Install `socket.io-client`.\n3.  **UI**: Build a clean interface with a \"Join Room\" screen and a \"Chat\" screen.\n4.  **Hooks**: Use `useEffect` to listen for incoming messages and update the message list state.\n\n**Phase 3: Orchestration**\n1.  Create a root `package.json` with a script `\"dev\": \"concurrently \\\"npm run server\\\" \\\"npm run client\\\"\"`.\n2.  **Verification**: Ensure that opening two browser tabs allows real-time communication.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "8",
-    "title": "Agentic E-commerce Store",
-    "description": "Next.js App Router store with Zustand. Agent handles complex file structure.",
+    "title": "E-commerce Storefront",
+    "description": "Next.js App Router project with Zustand state management. Focuses on modern Next.js patterns.",
     "tags": [
       "Pro",
-      "Agentic",
       "Next.js",
-      "Zustand"
+      "Zustand",
+      "TypeScript"
     ],
-    "prompt": "**System**: You are a Next.js Expert Agent.\n**Objective**: Build a Mock E-commerce Store.\n\n**Workflow**:\n1.  **Setup**:\n    *   `npx create-next-app@latest ecommerce-store --typescript --tailwind --eslint`.\n    *   `npm install zustand clsx tailwind-merge`.\n2.  **Architecture**:\n    *   **Store**: Create `src/store/useCart.ts` (Zustand store).\n    *   **UI**: Create `src/components/ui` (Button, Card).\n    *   **Pages**: Implement `src/app/page.tsx` (Product Grid) and `src/app/cart/page.tsx`.\n3.  **Features**:\n    *   Add to Cart (Persist in LocalStorage via Zustand middleware).\n    *   Cart Summary (Total calculation).\n\n**MCP/Tooling**:\n*   If you have access to a **Filesystem MCP**, use it to list the directory after creation to verify structure.\n*   Otherwise, use `list_dir` tool.",
+    "prompt": "**System Role**: You are a Next.js Expert Agent.\n**Objective**: Build a Mock E-commerce Store using Next.js 14+ App Router.\n\n**Constraints & Tools**:\n*   **Framework**: Next.js (App Router).\n*   **State**: Zustand (for Cart).\n*   **Styling**: Tailwind CSS.\n\n**Workflow**:\n\n1.  **Scaffold**:\n    *   `npx create-next-app@latest ecommerce --typescript --tailwind --eslint --no-src-dir`.\n2.  **State Management (`store/cart.ts`)**:\n    *   Create a Zustand store with `persist` middleware (save cart to localStorage).\n    *   Actions: `addItem`, `removeItem`, `updateQty`, `clearCart`.\n3.  **UI Components**:\n    *   `components/ProductCard.tsx`: Use `next/image` for optimization.\n    *   `components/CartSidebar.tsx`: A slide-over drawer using Headless UI or custom CSS.\n4.  **Routing**:\n    *   `app/page.tsx`: Product Grid (Mock data).\n    *   `app/product/[id]/page.tsx`: Dynamic product details.\n    *   `app/checkout/page.tsx`: Simple form.\n\n**Verification**:\n*   Use `run_command` to run `npm run build`.\n*   Ensure all images have `alt` tags (accessibility check).",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "9",
-    "title": "Agentic Blog Platform",
-    "description": "Full-stack Next.js + Prisma. Agent handles DB init and schema push.",
+    "title": "Blog Platform with Auth",
+    "description": "Full-stack Next.js app with Database and Authentication. Requires handling sensitive config.",
     "tags": [
       "Pro",
-      "Agentic",
+      "Next.js",
       "Prisma",
       "NextAuth"
     ],
-    "prompt": "**System**: You are a Backend Agent.\n**Objective**: Build a Blog with Auth and Database.\n\n**Plan**:\n1.  **Init**:\n    *   `npx create-next-app@latest blog-platform`.\n    *   `npm install prisma @prisma/client next-auth`.\n2.  **Database**:\n    *   `npx prisma init --datasource-provider sqlite`.\n    *   Write `prisma/schema.prisma`: Models for User, Post.\n    *   **Action**: Run `npx prisma db push` to create the SQLite DB.\n3.  **API**:\n    *   Create `app/api/auth/[...nextauth]/route.ts`.\n    *   Create `app/api/posts/route.ts` (GET/POST).\n4.  **Frontend**:\n    *   Create `app/page.tsx` to fetch and display posts.\n\n**Agent Instructions**:\n*   Use `run_command` to execute the prisma commands.\n*   Ensure you handle the `DATABASE_URL` env var in `.env`.",
+    "prompt": "**System Role**: You are a Backend-Focused Agent.\n**Objective**: Build a Blog Platform with Authentication and Database.\n\n**Stack**: Next.js, Prisma (SQLite for dev), NextAuth.js v5.\n\n**Step-by-Step Implementation**:\n\n1.  **Setup**:\n    *   Init Next.js project.\n    *   Install `prisma`, `@prisma/client`, `next-auth`, `@auth/prisma-adapter`.\n2.  **Database Layer**:\n    *   Run `npx prisma init`.\n    *   **Schema**: Define `User`, `Account`, `Session`, `Post` in `prisma/schema.prisma`.\n    *   **Migration**: Run `npx prisma db push`.\n3.  **Authentication**:\n    *   Configure NextAuth in `app/api/auth/[...nextauth]/route.ts`.\n    *   Use `GitHubProvider`.\n4.  **API Routes**:\n    *   `POST /api/posts`: Protected route (check session). Create post.\n    *   `GET /api/posts`: Public route. Fetch all published posts.\n5.  **Frontend**:\n    *   Use `useSession` hook to show \"Login\" or \"Create Post\" buttons.\n\n**Security**:\n*   Create a `.env.local` file template.\n*   Do NOT hardcode secrets. Use environment variables.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "10",
-    "title": "Agentic SaaS Boilerplate",
-    "description": "Complex scaffold with Stripe/Supabase. Agent uses MCPs for DB verification.",
+    "title": "SaaS Boilerplate (Unicorn)",
+    "description": "The ultimate starter kit. Integrates Stripe, Supabase, and Auth. Explicitly uses MCPs for DB management.",
     "tags": [
       "Expert",
-      "Agentic",
-      "MCP",
-      "SaaS"
+      "SaaS",
+      "Stripe",
+      "Supabase",
+      "MCP"
     ],
-    "prompt": "**System**: You are a Principal Architect Agent.\n**Objective**: Scaffold a SaaS Boilerplate (Next.js, Stripe, Supabase).\n\n**Workflow**:\n1.  **Project Setup**:\n    *   Initialize Next.js 14 App Router project.\n    *   Install `stripe`, `@supabase/supabase-js`, `drizzle-orm`.\n2.  **Database (MCP Usage)**:\n    *   Define schema in `db/schema.ts`.\n    *   *Instruction*: If a **PostgreSQL MCP** is available, use it to connect to the DB and apply migrations.\n    *   If not, generate the migration SQL file using `drizzle-kit generate`.\n3.  **Stripe Integration**:\n    *   Create `lib/stripe.ts`.\n    *   Create Webhook endpoint `app/api/webhooks/stripe/route.ts`.\n4.  **Authentication**:\n    *   Setup Middleware for route protection.\n\n**Goal**:\nProduce a production-ready codebase structure that the user can deploy.",
+    "prompt": "**System Role**: You are a Principal Software Architect Agent.\n**Objective**: Scaffold a Production-Ready SaaS Boilerplate.\n\n**Context**: This is a high-complexity task. You must use available MCPs to ensure database correctness.\n\n**Tech Stack**:\n*   **Frontend**: Next.js 14 (App Router), Shadcn/UI.\n*   **Backend**: Supabase (PostgreSQL), Drizzle ORM.\n*   **Auth**: Clerk or Supabase Auth.\n*   **Payments**: Stripe.\n\n**Agentic Workflow**:\n\n**Phase 1: Foundation**\n1.  **Scaffold**: Initialize Next.js.\n2.  **UI Library**: Run `npx shadcn-ui@latest init` to set up the design system. Add `button`, `input`, `card`, `dialog`.\n\n**Phase 2: Database (MCP Integration)**\n1.  **Schema Design**: Create `db/schema.ts`. Define `profiles`, `subscriptions`, `invoices`.\n2.  **MCP Action**:\n    *   Check if a **PostgreSQL MCP** is available.\n    *   If yes, use it to connect to the DB and execute the migration SQL directly.\n    *   If no, generate the migration file via `drizzle-kit` and instruct the user to run it.\n\n**Phase 3: Stripe Integration**\n1.  **Webhooks**: Create `app/api/webhooks/stripe/route.ts`.\n2.  **Logic**: Handle `checkout.session.completed` to provision the subscription in the DB.\n3.  **Security**: Verify the Stripe signature.\n\n**Phase 4: Dashboard**\n1.  Create a protected layout `app/dashboard/layout.tsx`.\n2.  Implement a \"SubscriptionStatus\" component that gates content based on the DB state.\n\n**Verification**:\n*   Run a full type check: `tsc --noEmit`.\n*   Ensure all environment variables are documented in `.env.example`.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "11",
-    "title": "Agentic RAG Pipeline",
-    "description": "AI Pipeline creation. Agent manages Python venv and vector DB setup.",
+    "title": "RAG AI Pipeline",
+    "description": "Builds a Retrieval Augmented Generation system. Manages Python environments and Vector DBs.",
     "tags": [
       "Expert",
-      "Agentic",
+      "AI",
       "Python",
-      "RAG"
+      "RAG",
+      "FastAPI"
     ],
-    "prompt": "**System**: You are an AI Engineering Agent.\n**Objective**: Build a RAG Pipeline (FastAPI + ChromaDB).\n\n**Plan**:\n1.  **Environment**:\n    *   `python3 -m venv venv`.\n    *   `source venv/bin/activate`.\n    *   `pip install fastapi uvicorn chromadb langchain openai pypdf`.\n2.  **Backend Code**:\n    *   Write `main.py`:\n        *   `/ingest`: Accept PDF, chunk, embed, store in Chroma.\n        *   `/chat`: Query Chroma, prompt LLM, return answer.\n3.  **Frontend Code**:\n    *   Scaffold Next.js app in `frontend/`.\n    *   Create Chat Interface.\n\n**Agent Instructions**:\n*   Use `run_command` to set up the Python environment.\n*   Be careful with API Keys. Create a `.env.example` file.",
+    "prompt": "**System Role**: You are an AI Engineering Agent.\n**Objective**: Build a RAG (Retrieval Augmented Generation) Pipeline.\n\n**Architecture**:\n*   **Backend**: Python (FastAPI).\n*   **Vector DB**: ChromaDB (Local).\n*   **LLM**: OpenAI API or Gemini API.\n*   **Frontend**: Next.js.\n\n**Detailed Plan**:\n\n**1. Python Environment (Backend)**\n*   Use `run_command` to:\n    *   Create `backend/`.\n    *   Run `python3 -m venv venv`.\n    *   Activate venv and install: `fastapi uvicorn chromadb langchain pypdf openai`.\n*   **Code**: Create `backend/main.py`.\n    *   Endpoint `/ingest`: Accepts PDF. Uses `PyPDFLoader`. Splits text. Embeds using `OpenAIEmbeddings`. Stores in Chroma.\n    *   Endpoint `/chat`: Accepts query. Searches Chroma. Sends context + query to LLM. Returns answer.\n\n**2. Frontend (Next.js)**\n*   Scaffold `frontend/`.\n*   **UI**: A chat interface with a file upload drag-and-drop zone.\n*   **Integration**: Proxy requests to `http://localhost:8000`.\n\n**3. Robustness**:\n*   Implement a \"Processing\" queue for large PDF uploads.\n*   Handle rate limits from the LLM provider.\n\n**Tool Usage**:\n*   Use `write_to_file` for all code generation.\n*   **Crucial**: Do not expose API keys. Use `python-dotenv`.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   },
   {
     "id": "12",
-    "title": "Agentic Collaborative Canvas",
-    "description": "Real-time whiteboard. Agent implements complex CRDT logic.",
+    "title": "Collaborative Whiteboard",
+    "description": "Real-time multiplayer canvas using CRDTs. The most complex frontend challenge.",
     "tags": [
       "Expert",
-      "Agentic",
       "WebSockets",
-      "Canvas"
+      "CRDT",
+      "Canvas",
+      "Liveblocks"
     ],
-    "prompt": "**System**: You are a Real-Time Systems Agent.\n**Objective**: Build a Multiplayer Canvas with Liveblocks.\n\n**Workflow**:\n1.  **Setup**:\n    *   Next.js + TypeScript.\n    *   `npm install @liveblocks/client @liveblocks/react konva react-konva`.\n2.  **Configuration**:\n    *   Write `liveblocks.config.ts`: Define `Storage` (layers) and `Presence` (cursor).\n3.  **Canvas Logic**:\n    *   Create `components/Canvas.tsx`.\n    *   Implement `useMutation` hooks for adding shapes.\n    *   Implement `useOthers` to render other users' cursors.\n4.  **Verification**:\n    *   Ensure the app builds.\n\n**Tool Usage**:\n*   Use `write_to_file` to create the complex component logic.\n*   Focus on correct TypeScript types for the CRDT storage.",
+    "prompt": "**System Role**: You are a Real-Time Systems Architect.\n**Objective**: Build a Multiplayer Infinite Canvas (Figma Lite).\n\n**Tech Stack**: Next.js, Liveblocks (for CRDTs), React-Konva (for Canvas).\n\n**Agentic Workflow**:\n\n**Phase 1: Setup**\n1.  Install dependencies: `@liveblocks/client @liveblocks/react konva react-konva`.\n2.  **Config**: Create `liveblocks.config.ts`.\n    *   Define `Storage`: `layers: LiveMap<string, Layer>`, `layerIds: LiveList<string>`.\n    *   Define `Presence`: `cursor: { x: number, y: number } | null`.\n\n**Phase 2: Canvas Logic**\n1.  **Component**: `Canvas.tsx`.\n2.  **Interactions**:\n    *   `onPointerMove`: Update presence (broadcast cursor).\n    *   `onPointerDown`: Start creating a shape (Rectangle/Ellipse).\n    *   `onPointerUp`: Commit shape to the CRDT storage.\n3.  **Rendering**:\n    *   Use `useStorage` to subscribe to changes.\n    *   Render `<Layer>` components based on the `layers` map.\n    *   Render `<Cursor>` components for other users.\n\n**Phase 3: Optimization**\n1.  **Performance**: Ensure the canvas does not re-render unnecessarily. Use `React.memo`.\n2.  **Undo/Redo**: Hook up Liveblocks `room.history.undo()`.\n\n**Verification**:\n*   The app must handle multiple users connecting simultaneously without state divergence.",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T10:00:00Z"
   }
