@@ -1448,5 +1448,727 @@
     "prompt": "**System Role**: You are a Frontend Dev.\n**Objective**: Build a Typing Test.\n\n**Phase 1: Logic**\n* Display paragraph.\n* Highlight current character (Green=Correct, Red=Wrong).\n* Calc WPM.\n\n**Verification**:\n* Type a sentence. Check WPM calculation.\n* **Visual Check**: Describe the Test Area (e.g., \"Large text block. Cursor blinks at current char. Live WPM counter updates in corner\").",
     "author": "Santhosh Sachin",
     "createdAt": "2025-12-09T19:04:02.980Z"
+  },
+  {
+    "id": "100",
+    "title": "WebGL Fluid Simulation",
+    "description": "Graphics. Real-time Navier-Stokes solver using GLSL shaders.",
+    "tags": [
+      "Creative Coding",
+      "Level 5",
+      "WebGL",
+      "GLSL",
+      "Physics"
+    ],
+    "prompt": "**System Role**: You are a Graphics Research Engineer.\n**Objective**: Build a real-time 2D Fluid Simulation running on the GPU.\n\n**Project Structure**:\n```\nsrc/\n  shaders/\n    advect.frag\n    divergence.frag\n    pressure.frag\n    gradient.frag\n    display.frag\n  simulation.js\n  index.html\n```\n\n**Reference Instructions**:\n*   **Math**: Implement the Navier-Stokes equations for Incompressible Flow.\n    *   Advection: `v_new = v_old(p - v_old * dt)`\n    *   Jacobi Iteration for Pressure: `p_new = (div + p_left + p_right + p_up + p_down) / 4`\n*   **Tech**: Use \"Ping-Pong\" FBOs (Frame Buffer Objects) to read/write state.\n\n**Visual Check**: \"Click and drag to add white dye. It should swirl and dissipate like smoke. Right-click to add velocity repulsors.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "101",
+    "title": "Granular Synthesis Engine",
+    "description": "Audio. Web Audio API synth that chops samples into 'grains'.",
+    "tags": [
+      "Audio",
+      "Level 5",
+      "Web Audio API",
+      "DSP",
+      "React"
+    ],
+    "prompt": "**System Role**: You are an Audio DSP Engineer.\n**Objective**: Build a Granular Synthesizer.\n\n**Project Structure**:\n```\nsrc/\n  audio/\n    Granulator.ts\n    AudioContext.ts\n  components/\n    GrainVisualizer.tsx\n    Controls.tsx\n```\n\n**Reference Instructions**:\n*   **Concept**: Break audio into 10-100ms \"grains\".\n*   **Parameters**: Grain Size, Overlap, Spray (Randomness), Pitch Shift.\n*   **Scheduling**: Use `AudioBufferSourceNode` scheduled with `ctx.currentTime` for precise timing.\n\n**Visual Check**: \"Load a sample. Drag the 'Position' slider. You should hear a cloud of sound textures. The visualizer shows active grains popping in and out.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "102",
+    "title": "Generative MIDI from Video",
+    "description": "AI/Music. Computer Vision converting camera movement into MIDI.",
+    "tags": [
+      "AI",
+      "Music",
+      "Level 4",
+      "OpenCV.js",
+      "WebMIDI"
+    ],
+    "prompt": "**System Role**: You are a Creative Technologist.\n**Objective**: Build a system that converts Webcam Optical Flow to MIDI CC messages.\n\n**Setup Instructions**:\n*   `npm install opencv.js webmidi`\n\n**Reference Instructions**:\n*   **Algo**: Lucas-Kanade Optical Flow to detect motion vectors.\n*   **Mapping**: Map Average Motion X -> MIDI CC 1 (Mod Wheel). Map Average Motion Y -> MIDI CC 11 (Expression).\n\n**Visual Check**: \"Wave hand left-to-right. The 'Modulation' dial on the screen turns. Connect to a DAW to hear the synth filter open.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "103",
+    "title": "Procedural Planet Generator",
+    "description": "Graphics. WebGPU-based terrain generation using Simplex Noise.",
+    "tags": [
+      "Graphics",
+      "Level 5",
+      "WebGPU",
+      "WGSL",
+      "ProcGen"
+    ],
+    "prompt": "**System Role**: You are a Procedural Generation Artist.\n**Objective**: Render a 3D Planet with LOD (Level of Detail) terrain.\n\n**Project Structure**:\n```\nsrc/\n  shaders/\n    planet.wgsl\n    atmosphere.wgsl\n  QuadTree.ts\n```\n\n**Reference Instructions**:\n*   **Algo**: 3D Simplex Noise (fBM - Fractal Brownian Motion) for heightmap.\n*   **LOD**: Implement a QuadTree sphere to increase triangle count near the camera.\n\n**Visual Check**: \"Zoom in on the planet. Mountains should gain detail. Oceans should have specular highlights. Atmosphere should have Rayleigh scattering (blue halo).\" ",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "104",
+    "title": "Live Coding DJ Environment",
+    "description": "Creative Coding. A text-editor-as-instrument for live visuals.",
+    "tags": [
+      "Creative Coding",
+      "Level 5",
+      "React",
+      "CodeMirror",
+      "Hydra"
+    ],
+    "prompt": "**System Role**: You are a Live Coder.\n**Objective**: Build a browser-based Live Coding environment inspired by Hydra/TidalCycles.\n\n**Reference Instructions**:\n*   **Eval**: Use `Function()` constructor to safely eval user code in a sandbox.\n*   **Loop**: `requestAnimationFrame` loop that passes `time` and `fft` (audio reactivity) to the user script.\n\n**Visual Check**: \"Type `osc(10).rotate(0.5).out()`. The background should instantly become a rotating oscillator pattern.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "105",
+    "title": "Spectral Vocoder",
+    "description": "Audio. Real-time FFT-based voice transformation.",
+    "tags": [
+      "Audio",
+      "Level 5",
+      "Web Audio API",
+      "FFT",
+      "Math"
+    ],
+    "prompt": "**System Role**: You are a DSP Engineer.\n**Objective**: Build a Phase Vocoder for pitch shifting without changing speed.\n\n**Reference Instructions**:\n*   **Pipeline**: Microphone -> AnalyserNode (FFT) -> Cartesian to Polar (Mag/Phase) -> Shift Bins -> Polar to Cartesian -> IFFT.\n*   **Math**: Overlap-Add (OLA) method to reconstruct the signal.\n\n**Visual Check**: \"Speak into mic. Adjust 'Pitch' slider up. Voice sounds like a chipmunk but speed is normal. Spectrogram shows frequency bands shifting up.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "106",
+    "title": "L-System Plant Generator",
+    "description": "ProcGen. Procedural generation of 3D trees using formal grammars.",
+    "tags": [
+      "Graphics",
+      "Level 3",
+      "Three.js",
+      "Algorithms"
+    ],
+    "prompt": "**System Role**: You are a Computational Botanist.\n**Objective**: Generate 3D trees using Lindenmayer Systems (L-Systems).\n\n**Reference Instructions**:\n*   **Grammar**: Define Axiom and Rules (e.g., `F -> FF+[+F-F-F]-[-F+F+F]`).\n*   **Turtle Graphics**: Interpret string: F=Draw, +=Rotate X, -=Rotate Y, [=Push Stack, ]=Pop Stack.\n\n**Visual Check**: \"Click 'Generate'. A complex fractal tree appears. Change the 'Angle' slider to see the species change from Oak-like to Pine-like.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "107",
+    "title": "Ray Tracing (WebGPU)",
+    "description": "Graphics. Real-time path tracer with global illumination.",
+    "tags": [
+      "Graphics",
+      "Level 5",
+      "WebGPU",
+      "WGSL",
+      "RayTracing"
+    ],
+    "prompt": "**System Role**: You are a Graphics Researcher.\n**Objective**: Build a Monte Carlo Path Tracer.\n\n**Reference Instructions**:\n*   **Physics**: Implement Lambertian Diffuse, Metallic, and Dielectric (Glass) materials.\n*   **Accumulation**: Average samples over time to reduce noise.\n\n**Visual Check**: \"Scene with 3 spheres (Gold, Glass, Matte). The Glass sphere should show inverted refraction. Soft shadows from the area light.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "108",
+    "title": "Fourier Series Drawing",
+    "description": "Math Viz. Visualizing epicycles to draw complex 2D paths.",
+    "tags": [
+      "Math",
+      "Level 4",
+      "p5.js",
+      "Fourier"
+    ],
+    "prompt": "**System Role**: You are a Math Visualizer.\n**Objective**: Draw any SVG path using rotating epicycles (DFT).\n\n**Reference Instructions**:\n*   **Math**: Discrete Fourier Transform (DFT) to calculate Radius, Frequency, and Phase for each circle.\n*   **Sort**: Sort circles by radius size (largest to smallest).\n\n**Visual Check**: \"Upload an SVG of a musical note. A chain of rotating circles draws the outline perfectly.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "109",
+    "title": "Binaural Beat Generator",
+    "description": "Audio. Engine for generating brainwave entrainment frequencies.",
+    "tags": [
+      "Audio",
+      "Level 2",
+      "Web Audio API",
+      "Neuroscience"
+    ],
+    "prompt": "**System Role**: You are a Sound Healer.\n**Objective**: Generate Binaural Beats.\n\n**Reference Instructions**:\n*   **Theory**: Left Ear = 440Hz, Right Ear = 444Hz -> Perceived Beat = 4Hz (Theta Wave).\n*   **Implementation**: Two `OscillatorNode`s panned hard Left/Right.\n\n**Visual Check**: \"Select 'Focus (Gamma)'. Left reads 400Hz, Right reads 440Hz. Put on headphones. You hear a pulsating wobble.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "110",
+    "title": "Retro Game Emulator (CHIP-8)",
+    "description": "Systems. A full emulator written in Rust/Wasm.",
+    "tags": [
+      "Systems",
+      "Level 5",
+      "Rust",
+      "Wasm",
+      "Emulation"
+    ],
+    "prompt": "**System Role**: You are an Emulator Developer.\n**Objective**: Build a CHIP-8 Interpreter running in the browser.\n\n**Project Structure**:\n```\nrust/\n  src/\n    cpu.rs\n    memory.rs\n    display.rs\n```\n\n**Reference Instructions**:\n*   **Opcode**: Implement `DXYN` (Draw Sprite). XOR sprite data with display memory.\n*   **Cycle**: Fetch -> Decode -> Execute loop running at 500Hz.\n\n**Visual Check**: \"Load PONG.ch8. You can play Pong using keyboard keys 1 and Q.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "111",
+    "title": "Distributed Hash Table (DHT) Viz",
+    "description": "Distributed Systems. Visualizing the Chord protocol ring.",
+    "tags": [
+      "Systems",
+      "Level 5",
+      "D3.js",
+      "Algorithms"
+    ],
+    "prompt": "**System Role**: You are a Distributed Systems Engineer.\n**Objective**: Visualize the Chord DHT Protocol.\n\n**Reference Instructions**:\n*   **Concept**: Keys are mapped to a ring (0 to 2^m).\n*   **Finger Table**: Each node knows nodes at distance 2^0, 2^1, 2^2...\n\n**Visual Check**: \"Click 'Add Node'. It joins the ring. Click 'Lookup Key'. Watch the query hop across the ring using finger tables (O(log N) hops).\" ",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "112",
+    "title": "Lidar Point Cloud Viewer",
+    "description": "GIS. High-performance WebGPU renderer for .las datasets.",
+    "tags": [
+      "Graphics",
+      "Level 5",
+      "WebGPU",
+      "GIS",
+      "Big Data"
+    ],
+    "prompt": "**System Role**: You are a Geospatial Engineer.\n**Objective**: Render 10 million points at 60fps.\n\n**Reference Instructions**:\n*   **Format**: Parse binary LAS/LAZ format.\n*   **Optimization**: Use a Linear Octree structure on the GPU to cull points outside the frustum.\n\n**Visual Check**: \"Load a city scan. Points are colored by elevation (Blue=Ground, Red=Roofs). Fly through smoothly.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "113",
+    "title": "Smart Contract Fuzzer",
+    "description": "Security. Rust-based tool to find bugs in Solidity.",
+    "tags": [
+      "Security",
+      "Level 5",
+      "Rust",
+      "EVM",
+      "Fuzzing"
+    ],
+    "prompt": "**System Role**: You are a Security Auditor.\n**Objective**: Build a Fuzzer for EVM Bytecode.\n\n**Reference Instructions**:\n*   **Tech**: Use `revm` (Rust EVM) crate for execution.\n*   **Strategy**: Generate random calldata. Check for Reverts or Balance Inconsistencies.\n\n**Visual Check**: \"Run on a vulnerable contract. Output: 'Invariant Violated! Input: 0xdeadbeef...'\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "114",
+    "title": "Browser Fingerprinting Shield",
+    "description": "Privacy. Injecting noise into Canvas/AudioContext.",
+    "tags": [
+      "Privacy",
+      "Level 4",
+      "JavaScript",
+      "Extension"
+    ],
+    "prompt": "**System Role**: You are a Privacy Researcher.\n**Objective**: Build an extension to spoof browser fingerprints.\n\n**Reference Instructions**:\n*   **Canvas**: Hook `HTMLCanvasElement.prototype.toDataURL`. Add slight random noise to pixels.\n*   **Audio**: Hook `AudioBuffer`. Add micro-jitter to frequency data.\n\n**Visual Check**: \"Visit a fingerprinting test site. Your 'Hash' should change every time you refresh the page.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "115",
+    "title": "BitTorrent Protocol Sim",
+    "description": "Networking. Visualizing pieces, peers, and choking algorithms.",
+    "tags": [
+      "Networking",
+      "Level 4",
+      "React",
+      "P2P"
+    ],
+    "prompt": "**System Role**: You are a Network Engineer.\n**Objective**: Simulate a BitTorrent Swarm.\n\n**Reference Instructions**:\n*   **Algo**: Implement 'Tit-for-Tat' choking strategy.\n*   **Rarest First**: Peers should request the rarest pieces first.\n\n**Visual Check**: \"One seeder (Green). Ten leechers (Red). Watch the file pieces (blue blocks) propagate until everyone is Green.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "116",
+    "title": "G-Code Viewer",
+    "description": "Manufacturing. 3D visualization of 3D printer toolpaths.",
+    "tags": [
+      "Manufacturing",
+      "Level 3",
+      "Three.js",
+      "Parsing"
+    ],
+    "prompt": "**System Role**: You are a CAM Engineer.\n**Objective**: Parse and Render G-Code.\n\n**Reference Instructions**:\n*   **Parse**: Handle `G0` (Rapid), `G1` (Linear Move). Extract X, Y, Z, E (Extrusion).\n*   **Render**: Draw lines. Color code by speed or layer height.\n\n**Visual Check**: \"Upload a Benchy.gcode. You see the boat layer by layer. Slider allows scrubbing through layers.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "117",
+    "title": "Esoteric Lang Interpreter",
+    "description": "Compilers. Brainfuck/Befunge visualizer and debugger.",
+    "tags": [
+      "Compilers",
+      "Level 3",
+      "React",
+      "Interpreter"
+    ],
+    "prompt": "**System Role**: You are a Language Nerd.\n**Objective**: Build a Visual Debugger for Brainfuck.\n\n**Reference Instructions**:\n*   **State**: Memory Tape (Array of 30,000 bytes), Data Pointer, Instruction Pointer.\n*   **Ops**: `>` `<` `+` `-` `.` `,` `[` `]`.\n\n**Visual Check**: \"Step through 'Hello World'. Watch the memory tape values change and the Instruction Pointer move.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "118",
+    "title": "Buffer Overflow Simulator",
+    "description": "Security. Educational visualization of stack memory corruption.",
+    "tags": [
+      "Security",
+      "Level 4",
+      "C/Wasm",
+      "Assembly"
+    ],
+    "prompt": "**System Role**: You are a Security Educator.\n**Objective**: Visualize Stack Smashing.\n\n**Reference Instructions**:\n*   **Layout**: Visualize Stack Frame (Local Vars | Saved EBP | Return Address).\n*   **Action**: `strcpy(buffer, input)` without bounds check.\n\n**Visual Check**: \"Type a long string. Watch it overflow 'buffer' and overwrite 'Return Address' with '41414141' (AAAA).\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "119",
+    "title": "Oscilloscope (Audio Input)",
+    "description": "Audio. Real-time waveform visualization from microphone.",
+    "tags": [
+      "Audio",
+      "Level 2",
+      "Canvas",
+      "Web Audio API"
+    ],
+    "prompt": "**System Role**: You are an Electrical Engineer.\n**Objective**: Build a Digital Oscilloscope.\n\n**Reference Instructions**:\n*   **Trigger**: Implement 'Rising Edge' trigger to stabilize the waveform.\n*   **Render**: Draw `AnalyserNode.getByteTimeDomainData` to Canvas.\n\n**Visual Check**: \"Whistle a pure tone. You see a stable Sine wave. Clap. You see a spike.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "120",
+    "title": "Neural Style Transfer Player",
+    "description": "AI. Real-time video processing in the browser.",
+    "tags": [
+      "AI",
+      "Level 4",
+      "TensorFlow.js",
+      "WebGL"
+    ],
+    "prompt": "**System Role**: You are an AI Artist.\n**Objective**: Apply 'Starry Night' style to Webcam feed.\n\n**Reference Instructions**:\n*   **Model**: Use a distilled Arbitrary Style Transfer model (Magenta.js).\n*   **Optimization**: Run inference on a smaller canvas (256x256) and upscale.\n\n**Visual Check**: \"Your face looks like a Van Gogh painting. Frame rate is > 15fps.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "121",
+    "title": "Satellite Trajectory Visualizer",
+    "description": "Space. Parsing TLE data to render satellites in CesiumJS.",
+    "tags": [
+      "Space",
+      "Level 3",
+      "CesiumJS",
+      "Math"
+    ],
+    "prompt": "**System Role**: You are an Orbital Mechanic.\n**Objective**: Visualize Starlink Constellation.\n\n**Reference Instructions**:\n*   **Math**: Use `satellite.js` (SGP4 propagator) to convert TLE (Two-Line Element) to Lat/Lon/Alt.\n\n**Visual Check**: \"Earth globe. Thousands of dots moving in orbital planes. Click one to see its velocity and altitude.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "122",
+    "title": "Bioinformatics Sequence Aligner",
+    "description": "Bio. Needleman-Wunsch algorithm for DNA.",
+    "tags": [
+      "Bio",
+      "Level 4",
+      "Algorithms",
+      "React"
+    ],
+    "prompt": "**System Role**: You are a Bioinformatician.\n**Objective**: Global Alignment of two DNA sequences.\n\n**Reference Instructions**:\n*   **Algo**: Needleman-Wunsch (Dynamic Programming).\n*   **Matrix**: Fill scoring matrix (Match=+1, Mismatch=-1, Gap=-2).\n\n**Visual Check**: \"Input 'GATTACA' and 'GCATGCU'. The grid fills up. The optimal path is highlighted. Result: 'G-ATTACA'.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "123",
+    "title": "Algorithmic Trading Backtester",
+    "description": "FinTech. Event-driven engine for HFT strategies.",
+    "tags": [
+      "FinTech",
+      "Level 5",
+      "Python",
+      "Pandas"
+    ],
+    "prompt": "**System Role**: You are a Quant Researcher.\n**Objective**: Build an Event-Driven Backtester (not Vectorized).\n\n**Reference Instructions**:\n*   **Components**: `DataHandler`, `Strategy`, `Portfolio`, `ExecutionHandler`.\n*   **Simulation**: Process tick-by-tick data. Account for slippage and transaction costs.\n\n**Visual Check**: \"Run a Moving Average Crossover strategy. Output: Equity Curve graph, Sharpe Ratio, Max Drawdown.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "124",
+    "title": "DreamBooth Fine-Tuning UI",
+    "description": "GenAI. Interface for training Stable Diffusion.",
+    "tags": [
+      "GenAI",
+      "Level 5",
+      "Python",
+      "Gradio",
+      "PyTorch"
+    ],
+    "prompt": "**System Role**: You are an ML Engineer.\n**Objective**: Build a UI to fine-tune SDXL on a specific subject.\n\n**Reference Instructions**:\n*   **Technique**: LoRA (Low-Rank Adaptation) + DreamBooth (Class Preservation Loss).\n*   **Script**: Wrap `diffusers/examples/train_dreambooth_lora.py`.\n\n**Visual Check**: \"Upload 5 photos of your dog. Click Train. After 10 mins, prompt 'A photo of [sks] dog in space'. It looks like your dog.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "125",
+    "title": "Genetic Algorithm Walker",
+    "description": "AI/Sim. Evolving bipedal creatures to walk using physics.",
+    "tags": [
+      "AI",
+      "Level 5",
+      "Matter.js",
+      "Genetic Algo"
+    ],
+    "prompt": "**System Role**: You are an Evolutionary Biologist.\n**Objective**: Evolve a creature to walk the furthest distance.\n\n**Reference Instructions**:\n*   **Genome**: Array of muscle strengths/timings.\n*   **Selection**: Fitness = Distance traveled. Crossover + Mutation.\n\n**Visual Check**: \"Generation 1: Creatures flop and fall. Generation 50: They wobble forward. Generation 100: They run.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "126",
+    "title": "StyleGAN Latent Explorer",
+    "description": "AI. Navigating the high-dimensional space of generated faces.",
+    "tags": [
+      "AI",
+      "Level 4",
+      "React",
+      "Python",
+      "GAN"
+    ],
+    "prompt": "**System Role**: You are an AI Researcher.\n**Objective**: Explore the Latent Space of StyleGAN2.\n\n**Reference Instructions**:\n*   **Concept**: Interpolate between two Latent Vectors (z1, z2).\n*   **UI**: Sliders for 'Age', 'Gender', 'Glasses' (using SeFa or GANSpace directions).\n\n**Visual Check**: \"Slider 'Age' moves right -> The face smoothly ages from child to old person.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "127",
+    "title": "Neuronal Network Sim",
+    "description": "Neuroscience. Hodgkin-Huxley model of spiking neurons.",
+    "tags": [
+      "Bio",
+      "Level 5",
+      "Python",
+      "Differential Equations"
+    ],
+    "prompt": "**System Role**: You are a Computational Neuroscientist.\n**Objective**: Simulate a Spiking Neural Network.\n\n**Reference Instructions**:\n*   **Math**: Hodgkin-Huxley equations (Ion channels: Na+, K+, Leak).\n*   **Plot**: Membrane Potential (mV) over time.\n\n**Visual Check**: \"Inject current. You see a spike train (Action Potentials). Stop current. Spiking stops.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "128",
+    "title": "Exoplanet Transit Photometry",
+    "description": "Space. Detecting planets from light curve dips.",
+    "tags": [
+      "Space",
+      "Level 4",
+      "Python",
+      "Astropy",
+      "Lightkurve"
+    ],
+    "prompt": "**System Role**: You are an Astronomer.\n**Objective**: Detect Exoplanets from Kepler data.\n\n**Reference Instructions**:\n*   **Method**: Box Least Squares (BLS) periodogram to find periodic dips.\n*   **Data**: Download light curve from MAST archive.\n\n**Visual Check**: \"Plot the Folded Light Curve. You see a clear U-shaped dip indicating a planet transit.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "129",
+    "title": "Traffic Flow Optimizer",
+    "description": "Sim. Cellular Automata (Nagel-Schreckenberg) simulation.",
+    "tags": [
+      "Simulation",
+      "Level 3",
+      "JavaScript",
+      "Canvas"
+    ],
+    "prompt": "**System Role**: You are a Traffic Engineer.\n**Objective**: Simulate Highway Traffic Jams.\n\n**Reference Instructions**:\n*   **Rules**: 1. Accel, 2. Decel (if close), 3. Randomize (human error), 4. Move.\n*   **Phenomenon**: Phantom Traffic Jams (waves of stopping without cause).\n\n**Visual Check**: \"Cars (dots) moving in a circle. Increase density. A traffic jam spontaneously forms and moves backward.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "130",
+    "title": "Zero-Knowledge Proof Login",
+    "description": "Web3. Implementing snarkjs for passwordless auth.",
+    "tags": [
+      "Web3",
+      "Level 5",
+      "Circom",
+      "SnarkJS",
+      "React"
+    ],
+    "prompt": "**System Role**: You are a Cryptographer.\n**Objective**: Build a ZK-Login system.\n\n**Reference Instructions**:\n*   **Circuit**: `template Password() { signal private input secret; ... }`.\n*   **Flow**: User generates Proof locally. Server verifies Proof. Secret never leaves client.\n\n**Visual Check**: \"Enter password. Click Login. Server logs 'Proof Verified', but never sees the password.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "131",
+    "title": "Carbon Credit Oracle",
+    "description": "IoT/Web3. IoT sensor data signing -> Blockchain minting.",
+    "tags": [
+      "Web3",
+      "IoT",
+      "Level 5",
+      "Solidity",
+      "MQTT"
+    ],
+    "prompt": "**System Role**: You are a Green Tech Engineer.\n**Objective**: Mint Carbon Credits based on Solar Output.\n\n**Reference Instructions**:\n*   **Hardware Sim**: Device signs `{ output: 50kWh, timestamp: ... }` with Private Key.\n*   **Contract**: `mint(data, signature)`. Verifies signature. Mints 1 Token per MWh.\n\n**Visual Check**: \"Simulate 1000kWh output. Check Wallet. Balance increases by 1 CarbonToken.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "132",
+    "title": "Autonomous Agent Market",
+    "description": "AI/Web3. Simulation of AI agents paying each other.",
+    "tags": [
+      "AI",
+      "Web3",
+      "Level 5",
+      "Python",
+      "LangChain"
+    ],
+    "prompt": "**System Role**: You are an AGI Architect.\n**Objective**: Agents buying/selling services.\n\n**Reference Instructions**:\n*   **Scenario**: 'Writer Agent' pays 'Research Agent' for data.\n*   **Payment**: Mock Crypto transfer upon task completion.\n\n**Visual Check**: \"Log: 'Research Agent delivered report. Writer Agent sent 0.01 ETH. Writer Agent published article.'\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "133",
+    "title": "Brain-Computer Interface Dashboard",
+    "description": "Bio/Hardware. Visualizing EEG data via Web Bluetooth.",
+    "tags": [
+      "Bio",
+      "Level 5",
+      "Web Bluetooth",
+      "React",
+      "Muse"
+    ],
+    "prompt": "**System Role**: You are a Neuro-Hacker.\n**Objective**: Connect to Muse Headband and visualize Brainwaves.\n\n**Reference Instructions**:\n*   **Protocol**: Muse GATT characteristics.\n*   **Viz**: Real-time FFT bands (Alpha, Beta, Delta, Theta).\n\n**Visual Check**: \"Connect device. Close eyes. Alpha waves (8-12Hz) spike on the graph.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "134",
+    "title": "Audio Steganography Encoder",
+    "description": "Security. Hiding text in audio frequency spectrum.",
+    "tags": [
+      "Security",
+      "Level 4",
+      "Python",
+      "Scipy",
+      "Audio"
+    ],
+    "prompt": "**System Role**: You are a Spy.\n**Objective**: Hide a secret message in a song.\n\n**Reference Instructions**:\n*   **Method**: Least Significant Bit (LSB) encoding in WAV data.\n*   **Capacity**: Calculate max bytes available.\n\n**Visual Check**: \"Encode 'Secret'. Play audio (sounds normal). Decode. Output: 'Secret'.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "135",
+    "title": "ZK-Rollup Demo",
+    "description": "Web3. Visualizing how transactions are bundled and proved.",
+    "tags": [
+      "Web3",
+      "Level 5",
+      "React",
+      "Cryptography"
+    ],
+    "prompt": "**System Role**: You are a Scaling Engineer.\n**Objective**: Visualize a ZK-Rollup.\n\n**Reference Instructions**:\n*   **Concept**: Merkle Tree of Accounts. Batch 10 txs. Generate Proof of State Root transition.\n\n**Visual Check**: \"Submit 10 txs. See them queue up. 'Prover' generates proof. L1 State Root updates once.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "136",
+    "title": "Merkle Tree Visualizer",
+    "description": "Web3. Interactive verification of data integrity.",
+    "tags": [
+      "Web3",
+      "Level 3",
+      "React",
+      "Algorithms"
+    ],
+    "prompt": "**System Role**: You are a Blockchain Educator.\n**Objective**: Visualize Merkle Proofs.\n\n**Reference Instructions**:\n*   **Algo**: Recursive Hash(Left + Right).\n*   **Proof**: Highlight the 'Sibling' nodes needed to prove a leaf.\n\n**Visual Check**: \"Change one data block. Watch the hash change propagate up to the Root (Avalanche effect).\" ",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "137",
+    "title": "Quantum Circuit Simulator",
+    "description": "Quantum. Visualizing Qubits, Hadamard gates, and entanglement.",
+    "tags": [
+      "Quantum",
+      "Level 5",
+      "JavaScript",
+      "Linear Algebra"
+    ],
+    "prompt": "**System Role**: You are a Quantum Physicist.\n**Objective**: Simulate a Quantum Computer.\n\n**Reference Instructions**:\n*   **State**: Complex Vector of size 2^N.\n*   **Gates**: Matrix Multiplication (Hadamard, CNOT, Pauli-X).\n\n**Visual Check**: \"Place H gate on Qubit 0. Place CNOT on Qubit 0,1. Measure. Result is always 00 or 11 (Entangled).\" ",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "138",
+    "title": "Shor's Algorithm Viz",
+    "description": "Quantum. Step-by-step visualization of quantum factoring.",
+    "tags": [
+      "Quantum",
+      "Level 5",
+      "Python",
+      "Qiskit",
+      "Manim"
+    ],
+    "prompt": "**System Role**: You are a Quantum Researcher.\n**Objective**: Visualize Shor's Algorithm factoring 15.\n\n**Reference Instructions**:\n*   **Steps**: Superposition -> Modular Exponentiation -> QFT -> Measurement.\n\n**Visual Check**: \"Animation showing the period finding step. The peaks converge to the factors 3 and 5.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "139",
+    "title": "DNA Sequence Sonification",
+    "description": "Bio/Art. Converting genetic data into musical sequences.",
+    "tags": [
+      "Bio",
+      "Art",
+      "Level 3",
+      "Python",
+      "MIDI"
+    ],
+    "prompt": "**System Role**: You are a Bio-Artist.\n**Objective**: Turn DNA into Music.\n\n**Reference Instructions**:\n*   **Mapping**: A=C4, T=E4, C=G4, G=B4 (C Major 7 chord).\n*   **Codons**: Map amino acids to instrument velocity/duration.\n\n**Visual Check**: \"Load COVID-19 Spike Protein sequence. Play. It sounds like an arpeggiated melody.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "140",
+    "title": "Double Pendulum Chaos",
+    "description": "Physics. Simulating chaotic motion with Lagrangian mechanics.",
+    "tags": [
+      "Physics",
+      "Level 4",
+      "Python",
+      "Matplotlib",
+      "Animation"
+    ],
+    "prompt": "**System Role**: You are a Physicist.\n**Objective**: Simulate the Double Pendulum.\n\n**Reference Instructions**:\n*   **Math**: Solve Lagrangian equations of motion using `scipy.integrate.odeint`.\n*   **Chaos**: Show two pendulums starting 0.001 rad apart diverging wildly.\n\n**Visual Check**: \"Trace the path of the tip. It creates a beautiful, unpredictable spirograph pattern.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "141",
+    "title": "Fluid SPH Simulation",
+    "description": "Physics. Smoothed Particle Hydrodynamics (water particles).",
+    "tags": [
+      "Physics",
+      "Level 5",
+      "C++",
+      "OpenGL",
+      "Simulation"
+    ],
+    "prompt": "**System Role**: You are a Simulation Engineer.\n**Objective**: Particle-based Water Simulation.\n\n**Reference Instructions**:\n*   **Kernels**: Poly6 (Density), Spiky (Pressure), Viscosity.\n*   **Grid**: Spatial Hashing for neighbor search.\n\n**Visual Check**: \"Dam break scenario. Water column collapses, splashes against walls. Particles behave like liquid.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "142",
+    "title": "Prime Spiral Visualizer",
+    "description": "Math. Ulam Spiral and Sieve of Eratosthenes.",
+    "tags": [
+      "Math",
+      "Level 2",
+      "React",
+      "Canvas"
+    ],
+    "prompt": "**System Role**: You are a Number Theorist.\n**Objective**: Draw the Ulam Spiral.\n\n**Reference Instructions**:\n*   **Algo**: Spiral numbers outwards from center. Highlight Primes.\n\n**Visual Check**: \"Zoom out. You see diagonal lines of primes appearing in the chaos.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "143",
+    "title": "Rubik's Cube Solver",
+    "description": "Algorithms. Implementing Kociemba's algorithm in 3D.",
+    "tags": [
+      "Algo",
+      "Level 5",
+      "Three.js",
+      "Kociemba"
+    ],
+    "prompt": "**System Role**: You are a Speedcuber.\n**Objective**: 3D Rubik's Cube Solver.\n\n**Reference Instructions**:\n*   **Algo**: Two-Phase Algorithm (Kociemba) to find solution < 20 moves.\n*   **3D**: Animate the layer rotations.\n\n**Visual Check**: \"Scramble. Click Solve. Watch the cube animate the solution rapidly.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "144",
+    "title": "Soft Body Physics",
+    "description": "Physics. Mass-Spring-Damper system for jelly objects.",
+    "tags": [
+      "Physics",
+      "Level 4",
+      "JavaScript",
+      "Canvas"
+    ],
+    "prompt": "**System Role**: You are a Game Physics Dev.\n**Objective**: Simulate a Jelly Cube.\n\n**Reference Instructions**:\n*   **Model**: Point masses connected by springs.\n*   **Integration**: Verlet Integration for stability.\n\n**Visual Check**: \"Throw the cube against a wall. It wobbles and deforms upon impact.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "145",
+    "title": "Lorenz Attractor",
+    "description": "Math. Visualizing the butterfly effect in 3D.",
+    "tags": [
+      "Math",
+      "Level 3",
+      "Three.js",
+      "Chaos"
+    ],
+    "prompt": "**System Role**: You are a Chaos Theorist.\n**Objective**: Render the Lorenz Attractor.\n\n**Reference Instructions**:\n*   **Equations**: dx/dt = sigma(y-x), etc.\n*   **Render**: Trail renderer to show the path history.\n\n**Visual Check**: \"The classic butterfly shape emerges. Change 'Rho' slightly, the shape changes completely.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "146",
+    "title": "Reaction-Diffusion",
+    "description": "Bio/Math. Gray-Scott model for biological pattern generation.",
+    "tags": [
+      "Math",
+      "Level 4",
+      "WebGL",
+      "Shaders"
+    ],
+    "prompt": "**System Role**: You are a Mathematical Biologist.\n**Objective**: Simulate Turing Patterns (Reaction-Diffusion).\n\n**Reference Instructions**:\n*   **Model**: Gray-Scott Equations.\n*   **Params**: Feed rate (f) and Kill rate (k).\n\n**Visual Check**: \"Start with random noise. Watch spots, stripes, and coral-like patterns grow organically.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "147",
+    "title": "N-Body Gravity Sim",
+    "description": "Space. Simulating solar system formation.",
+    "tags": [
+      "Space",
+      "Level 4",
+      "WebGPU",
+      "Physics"
+    ],
+    "prompt": "**System Role**: You are an Astrophysicist.\n**Objective**: Simulate 10,000 particles under gravity.\n\n**Reference Instructions**:\n*   **Force**: F = G * m1 * m2 / r^2.\n*   **Optimization**: Barnes-Hut algorithm (O(N log N)) or Compute Shader brute force.\n\n**Visual Check**: \"Start with a cloud. Watch it collapse into a spinning galaxy with spiral arms.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "148",
+    "title": "Optical Lens Sim",
+    "description": "Physics. Ray optics simulation (convex/concave lenses).",
+    "tags": [
+      "Physics",
+      "Level 3",
+      "React",
+      "Canvas"
+    ],
+    "prompt": "**System Role**: You are an Optics Engineer.\n**Objective**: Interactive Ray Optics Bench.\n\n**Reference Instructions**:\n*   **Snell's Law**: n1 * sin(theta1) = n2 * sin(theta2).\n\n**Visual Check**: \"Place a Convex Lens. Shine parallel rays. They converge at the Focal Point.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
+  },
+  {
+    "id": "149",
+    "title": "Turing Machine Viz",
+    "description": "CS Theory. Infinite tape simulation with state transitions.",
+    "tags": [
+      "CS",
+      "Level 3",
+      "React",
+      "Theory"
+    ],
+    "prompt": "**System Role**: You are a Computer Scientist.\n**Objective**: Visualize a Turing Machine.\n\n**Reference Instructions**:\n*   **Components**: Infinite Tape, Head, State Register, Table of Rules.\n\n**Visual Check**: \"Load 'Binary Increment' program. Watch the head move back and forth, flipping bits.\"",
+    "author": "Santhosh Sachin",
+    "createdAt": "2025-12-09T19:16:07.774Z"
   }
 ]
