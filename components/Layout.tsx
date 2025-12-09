@@ -35,10 +35,6 @@ const Layout = ({ children, title = 'Vibe Coding' }: LayoutProps) => {
             <span className="material-icons-round text-lg">dashboard</span>
             <span className="hidden sm:inline">Library</span>
           </Link>
-          <Link href="/add" className="px-5 py-2 text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] rounded-full shadow-md hover:shadow-lg transition-all flex items-center gap-2">
-            <span className="material-icons-round text-lg">add</span>
-            <span>New Template</span>
-          </Link>
         </nav>
       </header>
 
