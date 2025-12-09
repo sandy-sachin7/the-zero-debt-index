@@ -48,7 +48,7 @@ async function sync() {
     const chunk = templates.slice(i, i + batchSize);
 
     chunk.forEach(template => {
-      const ref = db.collection('templates').document(template.id);
+      const ref = db.collection('templates').doc(template.id);
       // Use { merge: true } to update existing fields without overwriting everything if we add new fields later
       batch.set(ref, template, { merge: true });
     });
