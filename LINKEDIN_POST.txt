@@ -1,0 +1,26 @@
+🚀 Just launched: Gemini Vibe Station ✦
+
+I built a "God-Tier" Agent Template Library in just 2 hours using Google Antigravity. ⚡️
+
+Stop writing boilerplate prompts. Start Vibe Coding.
+
+What is it?
+A curated collection of structured, enterprise-grade specs for AI Agents. These aren't just text prompts—they are typed JSON objects with:
+✅ Explicit System Roles
+✅ Execution Phases
+✅ Verification Steps
+✅ Typed Inputs
+
+Why?
+Because "chatting" with AI is slow. Giving it a structured Spec is instant engineering.
+
+The Tech Stack (Vibe Coded):
+*   Frontend: Next.js + Tailwind v4 (Google Light Theme 🎨)
+*   Backend: Firebase Firestore
+*   DevOps: GitOps Workflow (Merge PR -> Auto-Sync to DB)
+
+Try it out:
+👉 Live Demo: https://geminivibestation.vercel.app/
+👉 Repo: https://github.com/sandy-sachin7/the-zero-debt-index
+
+#VibeCoding #Gemini #GoogleAI #SoftwareEngineering #OpenSource #Nextjs #Firebase
