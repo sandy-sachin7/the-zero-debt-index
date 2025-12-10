@@ -59,7 +59,7 @@ export default function TemplateDetail() {
     return (
       <Layout>
         <div className="flex justify-center py-20">
-          <div className="w-12 h-12 border-4 border-fuchsia-500 border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-blue-200 border-t-[#1a73e8] rounded-full animate-spin"></div>
         </div>
       </Layout>
     );
@@ -69,8 +69,8 @@ export default function TemplateDetail() {
     return (
       <Layout>
         <div className="text-center py-20">
-          <h2 className="text-2xl font-medium text-slate-300">Template not found</h2>
-          <button onClick={() => router.push('/')} className="mt-4 text-fuchsia-400 hover:underline">
+          <h2 className="text-2xl font-medium text-[#202124]">Template not found</h2>
+          <button onClick={() => router.push('/')} className="mt-4 text-[#1a73e8] hover:underline">
             Return to Station
           </button>
         </div>
@@ -85,7 +85,7 @@ export default function TemplateDetail() {
         <div className="mb-12">
           <button
             onClick={() => router.back()}
-            className="mb-6 flex items-center text-slate-500 hover:text-white transition-colors text-sm font-medium"
+            className="mb-6 flex items-center text-[#5f6368] hover:text-[#202124] transition-colors text-sm font-medium"
           >
             <span className="material-icons-round text-lg mr-1">arrow_back</span>
             Back to Station
@@ -93,20 +93,20 @@ export default function TemplateDetail() {
 
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+              <h1 className="text-3xl md:text-4xl font-normal text-[#202124] mb-4 tracking-tight">
                 {template.title}
               </h1>
-              <p className="text-xl text-slate-400 font-light leading-relaxed max-w-2xl">
+              <p className="text-xl text-[#5f6368] font-light leading-relaxed max-w-2xl">
                 {template.description}
               </p>
             </div>
             <div className="flex flex-col gap-3">
               <button
                 onClick={handleCopy}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 font-bold text-sm uppercase tracking-wide ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all transform active:scale-95 font-medium text-sm tracking-wide ${
                   copied
-                    ? 'bg-green-500/20 text-green-400 border border-green-500/50'
-                    : 'bg-fuchsia-600 hover:bg-fuchsia-500 text-white shadow-fuchsia-500/20'
+                    ? 'bg-green-50 text-green-700 border border-green-200'
+                    : 'bg-[#1a73e8] hover:bg-[#1557b0] text-white'
                 }`}
               >
                 <span className="material-icons-round">
@@ -123,7 +123,7 @@ export default function TemplateDetail() {
                     alert("Clean JSON Copied to Clipboard!");
                   }
                 }}
-                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shadow-lg transition-all transform active:scale-95 font-bold text-sm uppercase tracking-wide"
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-gray-50 text-[#5f6368] border border-gray-300 shadow-sm transition-all transform active:scale-95 font-medium text-sm tracking-wide"
               >
                 <span className="material-icons-round">data_object</span>
                 Copy JSON
@@ -133,12 +133,12 @@ export default function TemplateDetail() {
 
           <div className="flex flex-wrap gap-2 items-center mt-6">
             {template.tags.map((tag) => (
-              <span key={tag} className="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-xs font-mono border border-slate-700">
+              <span key={tag} className="px-3 py-1 bg-gray-100 text-[#5f6368] rounded-full text-xs font-medium border border-gray-200">
                 {tag}
               </span>
             ))}
-            <span className="text-slate-600 mx-2">|</span>
-            <span className="text-xs text-slate-500 font-mono">
+            <span className="text-gray-300 mx-2">|</span>
+            <span className="text-xs text-[#5f6368]">
               v{template.version || '1.0.0'} • {template.author || 'Anonymous'}
             </span>
           </div>
@@ -150,12 +150,12 @@ export default function TemplateDetail() {
 
             {/* System Role (New Schema) */}
             {template.systemRole && (
-              <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <h2 className="text-sm font-bold text-fuchsia-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <section className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                <h2 className="text-sm font-bold text-[#1a73e8] uppercase tracking-wider mb-4 flex items-center gap-2">
                   <span className="material-icons-round text-lg">psychology</span>
                   System Role
                 </h2>
-                <div className="bg-slate-950 rounded-xl p-4 border border-white/5 font-mono text-slate-300 leading-relaxed">
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 font-mono text-[#202124] leading-relaxed text-sm">
                   {template.systemRole}
                 </div>
               </section>
@@ -164,20 +164,20 @@ export default function TemplateDetail() {
             {/* Phases (New Schema) */}
             {template.phases && template.phases.length > 0 ? (
               <section>
-                <h2 className="text-sm font-bold text-blue-400 uppercase tracking-wider mb-6 flex items-center gap-2">
+                <h2 className="text-sm font-bold text-[#5f6368] uppercase tracking-wider mb-6 flex items-center gap-2">
                   <span className="material-icons-round text-lg">list_alt</span>
                   Execution Phases
                 </h2>
                 <div className="space-y-6">
                   {template.phases.map((phase, index) => (
-                    <div key={index} className="relative pl-8 border-l-2 border-slate-800 hover:border-blue-500/50 transition-colors group">
-                      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-900 border-2 border-slate-700 group-hover:border-blue-500 transition-colors" />
+                    <div key={index} className="relative pl-8 border-l-2 border-gray-200 hover:border-[#1a73e8] transition-colors group">
+                      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-gray-300 group-hover:border-[#1a73e8] transition-colors" />
                       <div className="mb-2">
-                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Phase {index + 1}</span>
-                        <h3 className="text-lg font-bold text-white">{phase.name}</h3>
-                        <p className="text-slate-400 text-sm italic">{phase.goal}</p>
+                        <span className="text-xs font-bold text-[#5f6368] uppercase tracking-wider">Phase {index + 1}</span>
+                        <h3 className="text-lg font-medium text-[#202124]">{phase.name}</h3>
+                        <p className="text-[#5f6368] text-sm italic">{phase.goal}</p>
                       </div>
-                      <div className="bg-slate-900/50 rounded-xl p-4 border border-white/5 text-slate-300 whitespace-pre-wrap font-mono text-sm">
+                      <div className="bg-white rounded-lg p-4 border border-gray-200 text-[#202124] whitespace-pre-wrap font-mono text-sm shadow-sm">
                         {phase.instructions}
                       </div>
                     </div>
@@ -186,10 +186,10 @@ export default function TemplateDetail() {
               </section>
             ) : (
               /* Legacy Fallback */
-              <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                 <h2 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Legacy Prompt Content</h2>
-                 <div className="bg-slate-950 rounded-xl p-6 border border-white/5 overflow-x-auto">
-                    <pre className="font-mono text-sm text-slate-300 whitespace-pre-wrap leading-relaxed">
+              <section className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                 <h2 className="text-sm font-bold text-[#5f6368] uppercase tracking-wider mb-4">Legacy Prompt Content</h2>
+                 <div className="bg-gray-50 rounded-lg p-6 border border-gray-100 overflow-x-auto">
+                    <pre className="font-mono text-sm text-[#202124] whitespace-pre-wrap leading-relaxed">
                       {template.prompt || "No content available."}
                     </pre>
                  </div>
@@ -202,33 +202,33 @@ export default function TemplateDetail() {
           <div className="space-y-8">
 
             {/* Verification */}
-            <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <h2 className="text-sm font-bold text-green-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <section className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+              <h2 className="text-sm font-bold text-[#188038] uppercase tracking-wider mb-4 flex items-center gap-2">
                 <span className="material-icons-round text-lg">verified</span>
                 Verification
               </h2>
-              <div className="bg-slate-950 rounded-xl p-4 border border-white/5 text-slate-300 text-sm whitespace-pre-wrap">
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 text-[#202124] text-sm whitespace-pre-wrap">
                 {template.verification?.manualCheck || "No verification steps provided."}
               </div>
             </section>
 
             {/* Inputs */}
             {template.inputs && template.inputs.length > 0 && (
-              <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <h2 className="text-sm font-bold text-yellow-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <section className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                <h2 className="text-sm font-bold text-[#f9ab00] uppercase tracking-wider mb-4 flex items-center gap-2">
                   <span className="material-icons-round text-lg">input</span>
                   Inputs
                 </h2>
                 <div className="space-y-4">
                   {template.inputs.map((input) => (
-                    <div key={input.name} className="bg-slate-950 rounded-lg p-3 border border-white/5">
+                    <div key={input.name} className="bg-gray-50 rounded-lg p-3 border border-gray-100">
                       <div className="flex justify-between items-center mb-1">
-                        <span className="text-sm font-bold text-white font-mono">{input.name}</span>
-                        <span className="text-xs text-slate-500 uppercase">{input.type}</span>
+                        <span className="text-sm font-bold text-[#202124] font-mono">{input.name}</span>
+                        <span className="text-xs text-[#5f6368] uppercase">{input.type}</span>
                       </div>
-                      <p className="text-xs text-slate-400 mb-2">{input.description}</p>
+                      <p className="text-xs text-[#5f6368] mb-2">{input.description}</p>
                       {input.default && (
-                         <div className="text-xs text-slate-600 font-mono bg-slate-900 px-2 py-1 rounded inline-block">
+                         <div className="text-xs text-[#5f6368] font-mono bg-gray-200 px-2 py-1 rounded inline-block">
                            Default: {String(input.default)}
                          </div>
                       )}
