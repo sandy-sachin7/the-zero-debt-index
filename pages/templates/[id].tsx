@@ -27,12 +27,27 @@ export default function TemplateDetail() {
       });
   }, [id]);
 
+  const getCleanTemplate = () => {
+    if (!template) return null;
+    const { id, title, tags, author, createdAt, version, prompt, ...clean } = template;
+    return clean;
+  };
+
   const handleCopy = () => {
     if (!template) return;
     // Construct a copyable prompt from the structured data
-    const fullPrompt = `**System Role**: ${template.systemRole}\n\n` +
+    const inputsSection = template.inputs && template.inputs.length > 0
+      ? `**Inputs**:\n${template.inputs.map(i => `- ${i.name} (${i.type}): ${i.description} [Default: ${i.default}]`).join('\n')}\n\n`
+      : '';
+
+    const phasesSection = template.phases && template.phases.length > 0
+      ? template.phases.map(p => `**Phase ${p.name}**: ${p.goal}\n**Instructions**:\n${p.instructions}`).join('\n\n')
+      : (template.prompt || '');
+
+    const fullPrompt = `**System Role**: ${template.systemRole || 'General Assistant'}\n\n` +
       `**Objective**: ${template.description}\n\n` +
-      template.phases.map(p => `**Phase ${p.name}**: ${p.goal}\n${p.instructions}`).join('\n\n') +
+      inputsSection +
+      phasesSection +
       `\n\n**Verification**:\n${template.verification?.manualCheck || ''}`;
 
     navigator.clipboard.writeText(fullPrompt);
@@ -85,19 +100,35 @@ export default function TemplateDetail() {
                 {template.description}
               </p>
             </div>
-            <button
-              onClick={handleCopy}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 font-bold text-sm uppercase tracking-wide ${
-                copied
-                  ? 'bg-green-500/20 text-green-400 border border-green-500/50'
-                  : 'bg-fuchsia-600 hover:bg-fuchsia-500 text-white shadow-fuchsia-500/20'
-              }`}
-            >
-              <span className="material-icons-round">
-                {copied ? 'check' : 'content_copy'}
-              </span>
-              {copied ? 'Copied to Clipboard' : 'Copy Agent Spec'}
-            </button>
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={handleCopy}
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 font-bold text-sm uppercase tracking-wide ${
+                  copied
+                    ? 'bg-green-500/20 text-green-400 border border-green-500/50'
+                    : 'bg-fuchsia-600 hover:bg-fuchsia-500 text-white shadow-fuchsia-500/20'
+                }`}
+              >
+                <span className="material-icons-round">
+                  {copied ? 'check' : 'content_copy'}
+                </span>
+                {copied ? 'Copied Text' : 'Copy Agent Spec'}
+              </button>
+
+              <button
+                onClick={() => {
+                  const clean = getCleanTemplate();
+                  if (clean) {
+                    navigator.clipboard.writeText(JSON.stringify(clean, null, 2));
+                    alert("Clean JSON Copied to Clipboard!");
+                  }
+                }}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shadow-lg transition-all transform active:scale-95 font-bold text-sm uppercase tracking-wide"
+              >
+                <span className="material-icons-round">data_object</span>
+                Copy JSON
+              </button>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-2 items-center mt-6">
@@ -181,16 +212,31 @@ export default function TemplateDetail() {
               </div>
             </section>
 
-            {/* Inputs (Placeholder for now) */}
-            <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm opacity-50">
-              <h2 className="text-sm font-bold text-yellow-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <span className="material-icons-round text-lg">input</span>
-                Inputs (Coming Soon)
-              </h2>
-              <p className="text-xs text-slate-500">
-                Configurable variables will appear here in the next version.
-              </p>
-            </section>
+            {/* Inputs */}
+            {template.inputs && template.inputs.length > 0 && (
+              <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <h2 className="text-sm font-bold text-yellow-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span className="material-icons-round text-lg">input</span>
+                  Inputs
+                </h2>
+                <div className="space-y-4">
+                  {template.inputs.map((input) => (
+                    <div key={input.name} className="bg-slate-950 rounded-lg p-3 border border-white/5">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm font-bold text-white font-mono">{input.name}</span>
+                        <span className="text-xs text-slate-500 uppercase">{input.type}</span>
+                      </div>
+                      <p className="text-xs text-slate-400 mb-2">{input.description}</p>
+                      {input.default && (
+                         <div className="text-xs text-slate-600 font-mono bg-slate-900 px-2 py-1 rounded inline-block">
+                           Default: {String(input.default)}
+                         </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
           </div>
         </div>
