@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
-import { Template } from '@/utils/storage';
+import { Template } from '@/types/template';
 
 export default function TemplateDetail() {
   const router = useRouter();
@@ -29,7 +29,13 @@ export default function TemplateDetail() {
 
   const handleCopy = () => {
     if (!template) return;
-    navigator.clipboard.writeText(template.prompt);
+    // Construct a copyable prompt from the structured data
+    const fullPrompt = `**System Role**: ${template.systemRole}\n\n` +
+      `**Objective**: ${template.description}\n\n` +
+      template.phases.map(p => `**Phase ${p.name}**: ${p.goal}\n${p.instructions}`).join('\n\n') +
+      `\n\n**Verification**:\n${template.verification?.manualCheck || ''}`;
+
+    navigator.clipboard.writeText(fullPrompt);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -38,7 +44,7 @@ export default function TemplateDetail() {
     return (
       <Layout>
         <div className="flex justify-center py-20">
-          <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-fuchsia-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       </Layout>
     );
@@ -48,9 +54,9 @@ export default function TemplateDetail() {
     return (
       <Layout>
         <div className="text-center py-20">
-          <h2 className="text-2xl font-medium text-gray-800">Template not found</h2>
-          <button onClick={() => router.push('/')} className="mt-4 text-blue-600 hover:underline">
-            Return to Library
+          <h2 className="text-2xl font-medium text-slate-300">Template not found</h2>
+          <button onClick={() => router.push('/')} className="mt-4 text-fuchsia-400 hover:underline">
+            Return to Station
           </button>
         </div>
       </Layout>
@@ -58,82 +64,137 @@ export default function TemplateDetail() {
   }
 
   return (
-    <Layout title={`${template.title} | The Zero-Debt Index`}>
-      <div className="max-w-4xl mx-auto">
+    <Layout title={`${template.title} | Gemini Vibe Station`}>
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-12">
           <button
             onClick={() => router.back()}
-            className="mb-6 flex items-center text-gray-500 hover:text-gray-800 transition-colors text-sm font-medium"
+            className="mb-6 flex items-center text-slate-500 hover:text-white transition-colors text-sm font-medium"
           >
             <span className="material-icons-round text-lg mr-1">arrow_back</span>
-            Back
+            Back to Station
           </button>
 
-          <h1 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-4 tracking-tight">
-            {template.title}
-          </h1>
-
-          <p className="text-xl text-gray-500 font-light leading-relaxed mb-6">
-            {template.description}
-          </p>
-
-          <div className="flex flex-wrap gap-2 items-center">
-            {template.tags.map((tag) => (
-              <span key={tag} className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100">
-                {tag}
-              </span>
-            ))}
-            <span className="text-gray-300 mx-2">|</span>
-            <span className="text-sm text-gray-400 flex items-center gap-1">
-              <span className="material-icons-round text-base">person</span>
-              {template.author || 'Anonymous'}
-            </span>
-          </div>
-        </div>
-
-        {/* Prompt Card */}
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden relative">
-          <div className="absolute top-4 right-4 z-10">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+                {template.title}
+              </h1>
+              <p className="text-xl text-slate-400 font-light leading-relaxed max-w-2xl">
+                {template.description}
+              </p>
+            </div>
             <button
               onClick={handleCopy}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all transform active:scale-95 font-medium ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 font-bold text-sm uppercase tracking-wide ${
                 copied
-                  ? 'bg-green-100 text-green-800'
-                  : 'bg-[#1a73e8] text-white hover:bg-[#1557b0]'
+                  ? 'bg-green-500/20 text-green-400 border border-green-500/50'
+                  : 'bg-fuchsia-600 hover:bg-fuchsia-500 text-white shadow-fuchsia-500/20'
               }`}
             >
               <span className="material-icons-round">
                 {copied ? 'check' : 'content_copy'}
               </span>
-              {copied ? 'Copied' : 'Copy Prompt'}
+              {copied ? 'Copied to Clipboard' : 'Copy Agent Spec'}
             </button>
           </div>
 
-          <div className="bg-gray-50 px-8 py-4 border-b border-gray-100">
-            <h2 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Prompt Content</h2>
+          <div className="flex flex-wrap gap-2 items-center mt-6">
+            {template.tags.map((tag) => (
+              <span key={tag} className="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-xs font-mono border border-slate-700">
+                {tag}
+              </span>
+            ))}
+            <span className="text-slate-600 mx-2">|</span>
+            <span className="text-xs text-slate-500 font-mono">
+              v{template.version || '1.0.0'} • {template.author || 'Anonymous'}
+            </span>
+          </div>
+        </div>
+
+        {/* System Role Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-8">
+
+            {/* System Role (New Schema) */}
+            {template.systemRole && (
+              <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <h2 className="text-sm font-bold text-fuchsia-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span className="material-icons-round text-lg">psychology</span>
+                  System Role
+                </h2>
+                <div className="bg-slate-950 rounded-xl p-4 border border-white/5 font-mono text-slate-300 leading-relaxed">
+                  {template.systemRole}
+                </div>
+              </section>
+            )}
+
+            {/* Phases (New Schema) */}
+            {template.phases && template.phases.length > 0 ? (
+              <section>
+                <h2 className="text-sm font-bold text-blue-400 uppercase tracking-wider mb-6 flex items-center gap-2">
+                  <span className="material-icons-round text-lg">list_alt</span>
+                  Execution Phases
+                </h2>
+                <div className="space-y-6">
+                  {template.phases.map((phase, index) => (
+                    <div key={index} className="relative pl-8 border-l-2 border-slate-800 hover:border-blue-500/50 transition-colors group">
+                      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-900 border-2 border-slate-700 group-hover:border-blue-500 transition-colors" />
+                      <div className="mb-2">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Phase {index + 1}</span>
+                        <h3 className="text-lg font-bold text-white">{phase.name}</h3>
+                        <p className="text-slate-400 text-sm italic">{phase.goal}</p>
+                      </div>
+                      <div className="bg-slate-900/50 rounded-xl p-4 border border-white/5 text-slate-300 whitespace-pre-wrap font-mono text-sm">
+                        {phase.instructions}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ) : (
+              /* Legacy Fallback */
+              <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                 <h2 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Legacy Prompt Content</h2>
+                 <div className="bg-slate-950 rounded-xl p-6 border border-white/5 overflow-x-auto">
+                    <pre className="font-mono text-sm text-slate-300 whitespace-pre-wrap leading-relaxed">
+                      {template.prompt || "No content available."}
+                    </pre>
+                 </div>
+              </section>
+            )}
+
           </div>
 
-          <div className="p-8 overflow-x-auto">
-            <pre className="font-mono text-sm text-gray-800 whitespace-pre-wrap leading-relaxed">
-              {template.prompt}
-            </pre>
+          {/* Sidebar */}
+          <div className="space-y-8">
+
+            {/* Verification */}
+            <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+              <h2 className="text-sm font-bold text-green-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="material-icons-round text-lg">verified</span>
+                Verification
+              </h2>
+              <div className="bg-slate-950 rounded-xl p-4 border border-white/5 text-slate-300 text-sm whitespace-pre-wrap">
+                {template.verification?.manualCheck || "No verification steps provided."}
+              </div>
+            </section>
+
+            {/* Inputs (Placeholder for now) */}
+            <section className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm opacity-50">
+              <h2 className="text-sm font-bold text-yellow-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="material-icons-round text-lg">input</span>
+                Inputs (Coming Soon)
+              </h2>
+              <p className="text-xs text-slate-500">
+                Configurable variables will appear here in the next version.
+              </p>
+            </section>
+
           </div>
         </div>
 
-        {/* Instructions */}
-        <div className="mt-12 bg-blue-50 rounded-2xl p-8 border border-blue-100 flex gap-6 items-start">
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm flex-shrink-0">
-             <span className="material-icons-round text-2xl">lightbulb</span>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">How to use</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Copy the prompt above and paste it into <strong>Google AI Studio</strong>, <strong>Gemini Advanced</strong>, or your local agentic environment.
-              These prompts are optimized for "The Zero-Debt Index" — providing high-level intent while letting the AI handle the implementation details.
-            </p>
-          </div>
-        </div>
       </div>
     </Layout>
   );

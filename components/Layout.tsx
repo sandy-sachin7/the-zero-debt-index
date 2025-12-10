@@ -9,55 +9,63 @@ interface LayoutProps {
 
 const Layout = ({ children, title = 'The Zero-Debt Index' }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col font-roboto">
+    <>
       <Head>
-        <title>{title}</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>Gemini Vibe Station</title>
+        <meta name="description" content="The ultimate collection of Vibe Coding templates." />
       </Head>
 
-      {/* Google App Bar Style Header */}
-      <header className="bg-white sticky top-0 z-50 px-4 sm:px-6 py-3 shadow-sm flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2 group">
-             {/* Simple Logo Icon */}
-             <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-md group-hover:shadow-lg transition-all">
-                <span className="material-icons-round text-2xl">auto_awesome</span>
-             </div>
-             <span className="text-xl font-medium text-gray-700 tracking-tight group-hover:text-blue-600 transition-colors">
-               The Zero-Debt Index
-             </span>
-          </Link>
-        </div>
-
-        <nav className="flex items-center gap-2 sm:gap-4">
-          <Link href="/" className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-full transition-colors flex items-center gap-2">
-            <span className="material-icons-round text-lg">dashboard</span>
-            <span className="hidden sm:inline">Library</span>
-          </Link>
+      <div className="min-h-screen flex flex-col bg-slate-950 text-slate-200 font-sans selection:bg-fuchsia-500/30">
+        {/* Navbar */}
+        <nav className="border-b border-white/10 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <div className="flex items-center gap-3">
+                <Link href="/" className="flex items-center gap-2 group">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-fuchsia-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300">
+                    <span className="text-white font-bold text-lg">V</span>
+                  </div>
+                  <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+                    Gemini Vibe Station
+                  </span>
+                </Link>
+              </div>
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://github.com/sandy-sachin7/the-zero-debt-index"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
         </nav>
-      </header>
 
-      {/* Main Content Area */}
-      <main className="flex-grow max-w-6xl mx-auto w-full px-4 sm:px-6 py-8">
-        {children}
-      </main>
+        {/* Main Content */}
+        <main className="flex-grow">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {children}
+          </div>
+        </main>
 
-      {/* Footer */}
-      <footer className="bg-[#f1f3f4] py-8 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-            <span className="material-icons-round text-base">code</span>
-            with
-            <span className="material-icons-round text-base text-red-500">favorite</span>
-            for Antigravity & Gemini
-          </p>
-          <p className="text-xs text-gray-400 mt-2">
-            &copy; {new Date().getFullYear()} The Zero-Debt Index
-          </p>
-        </div>
-      </footer>
-    </div>
+        {/* Footer */}
+        <footer className="border-t border-white/10 bg-slate-900/50 backdrop-blur-sm mt-auto">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-slate-500 text-sm">
+                &copy; {new Date().getFullYear()} Gemini Vibe Station. Open Source.
+              </p>
+              <div className="flex items-center gap-6 text-sm font-medium text-slate-400">
+                <span>Built in 2 hours using Google AI Studio. 100% Vibe Coded.</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
 

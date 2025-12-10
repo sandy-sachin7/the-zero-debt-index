@@ -1,15 +1,8 @@
 import { db } from './firebase';
 import { collection, getDocs, getDoc, doc, setDoc } from 'firebase/firestore';
+import { Template } from '../types/template';
 
-export interface Template {
-  id: string;
-  title: string;
-  description: string;
-  tags: string[];
-  prompt: string;
-  author?: string;
-  createdAt: string;
-}
+export type { Template };
 
 export const getTemplates = async (): Promise<Template[]> => {
   try {
